@@ -1,6 +1,6 @@
-package problemTwo;
+package taskTwo;
 
-public class ProblemTwo {
+public class TaskTwo {
 	public static void main(String[] args) {
 		int[] availableNumbers = { 1, 23, 5, 6, 34, 54, 65, 888, 65, 45, 4, 7, 15, 54 };
 

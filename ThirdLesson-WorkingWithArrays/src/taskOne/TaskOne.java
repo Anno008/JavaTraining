@@ -1,6 +1,6 @@
-package problemOne;
+package taskOne;
 
-public class ProblemOne {
+public class TaskOne {
 	public static void main(String[] args) {
 
 		int amountToCheckout = 14350;
