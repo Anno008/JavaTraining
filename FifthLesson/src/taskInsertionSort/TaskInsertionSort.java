@@ -1,6 +1,8 @@
-package taskOne;
+package taskInsertionSort;
 
-public class TaskOne {
+import java.util.Arrays;
+
+public class TaskInsertionSort {
 
 	public static void main(String[] args) {
 		// Translate pseudo code to java
@@ -15,7 +17,8 @@ public class TaskOne {
 		// end(for)
 		
 		int[] array = { 1, 3, 4, 55, 66, 45, 78, 64 };
-
+		System.out.println("Input array: " + Arrays.toString(array));
+		
 		for (int i = 1; i < array.length; i++) {
 			int key = array[i];
 			int j = i - 1;
@@ -27,9 +30,7 @@ public class TaskOne {
 			array[j + 1] = key;
 		}
 
-		for (int i : array) {
-			System.out.println(i);
-		}
+		System.out.println("Sorted arra: " + Arrays.toString(array));
 	}
 
 }
