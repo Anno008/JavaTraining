@@ -6,6 +6,7 @@ public class TaskSelectionSort {
 	public static void main(String[] args) {
 		// This algorithm is fairly simple to implement but has considerable drawbacks
 		// for every item in the array we will iterate by array length times
+		// n(n-1)/2
 
 		int[] array = { 6, 12, 42, 33, 4, 1, 3, 2, 0, 0, 1 };
 		System.out.println("Input array: " + Arrays.toString(array));
