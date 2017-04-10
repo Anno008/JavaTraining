@@ -5,9 +5,8 @@ import java.util.Arrays;
 public class TaskMergeSort {
 
 	public static void main(String[] args) {
-		int[] array = { 9, 10, 3, 4, 5, 6, 7, 8 };
+		int[] array = { 9, 10, 3, 4, 4, 5, 1 };
 
-		System.out.println("Note sadly this only works if the count of the array is an even number.");
 		System.out.println("Input array: " + Arrays.toString(array));
 		int[] resultArray = MergeSortArray(array);
 
@@ -19,13 +18,14 @@ public class TaskMergeSort {
 			return inputArray;
 
 		int[] leftArray = new int[inputArray.length / 2];
-		int[] rightArray = new int[inputArray.length / 2];
+		int[] rightArray = new int[inputArray.length - leftArray.length];
 
 		for (int i = 0; i < inputArray.length; i++) {
 			if (i < inputArray.length / 2)
 				leftArray[i] = inputArray[i];
 			else
 				rightArray[i - inputArray.length / 2] = inputArray[i];
+
 		}
 
 		return MergeArrays(MergeSortArray(leftArray), MergeSortArray(rightArray));
@@ -36,10 +36,12 @@ public class TaskMergeSort {
 		int[] resultArray = new int[left.length + right.length];
 
 		for (int i = 0; i < resultArray.length; i++) {
-			resultArray[i] = leftIndex >= left.length ? 
-					right[rightIndex++] : rightIndex >= right.length ? 
-					left[leftIndex++] : left[leftIndex] <= right[rightIndex] ? 
-					left[leftIndex++] : right[rightIndex++];
+			if (leftIndex >= left.length)
+				resultArray[i] = right[rightIndex++];
+			else if (rightIndex >= right.length || left[leftIndex] <= right[rightIndex])
+				resultArray[i] = left[leftIndex++];
+			else
+				resultArray[i] = right[rightIndex++];
 		}
 		return resultArray;
 	}

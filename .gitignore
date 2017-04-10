@@ -10,6 +10,11 @@ local.properties
 .loadpath
 .recommenders
 
+RemoteSystemsTempFiles
+
+# ignore microsoft word temp files
+~$*.docx
+~*.tmp
 
 # External tool builders
 .externalToolBuilders/
