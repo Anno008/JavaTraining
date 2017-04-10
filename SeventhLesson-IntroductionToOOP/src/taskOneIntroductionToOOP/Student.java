@@ -28,8 +28,14 @@ public class Student {
 		TaskOneIntroductionToOOP.Exams.add(exam);
 	}
 	public void InvalidateExam(Exam examToInvalidate) {
-		Exams.remove(examToInvalidate);
-		TaskOneIntroductionToOOP.Exams.remove(examToInvalidate);
+		if(Exams.contains(examToInvalidate))
+		{
+			Exams.remove(examToInvalidate);
+			TaskOneIntroductionToOOP.Exams.remove(examToInvalidate);
+		}
+		else{
+			System.out.println("Warning! Student: " + Name + " didn't pass the exam: " + examToInvalidate.Subject.Name + ", nothing to invalidate." );
+		}
 	}
 
 	public void PrintStudentsInformation() {

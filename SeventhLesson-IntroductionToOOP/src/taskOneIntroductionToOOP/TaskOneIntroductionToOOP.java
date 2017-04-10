@@ -32,6 +32,8 @@ public class TaskOneIntroductionToOOP {
 		ivana.PrintStudentsInformation();
 		Exam examToInvalidate = Exams.stream().filter(e -> e.Subject.Name == SubjectsEnum.Finance).findFirst().get();
 		ivana.InvalidateExam(examToInvalidate);
+		
+		ivana.InvalidateExam(new Exam(ivana, new Subject(SubjectsEnum.Art), 0));
 		ivana.PrintStudentsInformation();
 		
 		System.out.println();
