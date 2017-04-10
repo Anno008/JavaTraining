@@ -1,6 +1,6 @@
-package taskFive;
+	package taskFiveFactorial;
 
-public class TaskFive {
+public class TaskFiveFactorial {
 	public static void main(String[] args) {
 		int recResult = FactorialRecursive(4);
 		System.out.println(recResult);

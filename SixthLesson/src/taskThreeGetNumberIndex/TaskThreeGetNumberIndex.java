@@ -1,6 +1,6 @@
-package taskThree;
+package taskThreeGetNumberIndex;
 
-public class TaskThree {
+public class TaskThreeGetNumberIndex {
 	public static void main(String[] args) {
 		int[] array = { 2, 5, 4, 3, 7, 645, 56, 123 };
 		int number = 5;

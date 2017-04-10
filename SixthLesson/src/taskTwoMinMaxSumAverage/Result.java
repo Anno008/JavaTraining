@@ -1,4 +1,4 @@
-package taskTwo;
+package taskTwoMinMaxSumAverage;
 
 public class Result {
 	public int SmallestNumber;

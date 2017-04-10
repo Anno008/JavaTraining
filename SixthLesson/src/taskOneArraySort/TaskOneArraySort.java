@@ -1,8 +1,8 @@
-package taskOne;
+package taskOneArraySort;
 
 import java.util.Arrays;
 
-public class TaskOne {
+public class TaskOneArraySort {
 	public static void main(String[] args) {
 		int[] inputArray = { 1, 2, 3, 4, 5, 78, 9, 45, 3 };
 		System.out.println("Input array: " + Arrays.toString(inputArray));

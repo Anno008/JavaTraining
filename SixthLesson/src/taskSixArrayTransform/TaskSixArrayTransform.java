@@ -1,8 +1,8 @@
-package taskSix;
+package taskSixArrayTransform;
 
 import java.util.Arrays;
 
-public class TaskSix {
+public class TaskSixArrayTransform {
 	public static void main(String[] args) {
 		// Transfrom a matrix
 

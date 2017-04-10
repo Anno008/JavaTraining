@@ -1,8 +1,8 @@
-package taskFour;
+package taskFourArrayMedian;
 
-import taskOne.TaskOne;
+import taskOneArraySort.TaskOneArraySort;
 
-public class TaskFour {
+public class TaskFourArrayMedian {
 	public static void main(String[] args) {
 		int[] inputArray = { 1, 2, 6, 45, 89, 6, 34, 63, 2, 76, 645 };
 		double median = GetArrayMedian(inputArray);
@@ -11,7 +11,7 @@ public class TaskFour {
 	}
 
 	public static double GetArrayMedian(int[] array) {
-		int[] sortedArray = TaskOne.bubbleSort(array);
+		int[] sortedArray = TaskOneArraySort.bubbleSort(array);
 
 		return array.length % 2 == 0 ? (double) array[array.length / 2] + (double) array[array.length / 2 - 1]
 				: (double) array[array.length / 2];

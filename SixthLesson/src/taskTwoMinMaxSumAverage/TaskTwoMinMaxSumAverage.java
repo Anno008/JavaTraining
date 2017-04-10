@@ -1,6 +1,6 @@
-package taskTwo;
+package taskTwoMinMaxSumAverage;
 
-public class TaskTwo {
+public class TaskTwoMinMaxSumAverage {
 	public static void main(String[] args) {
 		int[] inputArray = { 2, 5, 73, 45, 23, 97, 6, 465 };
 
