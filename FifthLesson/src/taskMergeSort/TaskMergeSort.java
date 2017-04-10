@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TaskMergeSort {
 
 	public static void main(String[] args) {
-		int[] array = { 9, 10, 3, 4, 4, 5, 1 };
+		int[] array = { 9, 10, 3, 4, 4, 5, 1, 25, 33, 0, 0, 111 };
 
 		System.out.println("Input array: " + Arrays.toString(array));
 		int[] resultArray = MergeSortArray(array);
@@ -17,15 +17,17 @@ public class TaskMergeSort {
 		if (inputArray.length <= 1)
 			return inputArray;
 
-		int[] leftArray = new int[inputArray.length / 2];
-		int[] rightArray = new int[inputArray.length - leftArray.length];
-
-		for (int i = 0; i < inputArray.length; i++) {
-			if (i < inputArray.length / 2)
+		boolean isEven = inputArray.length % 2 == 0;
+		int halfLength = inputArray.length / 2;
+		int[] leftArray = new int[halfLength];
+		int[] rightArray = new int[inputArray.length - halfLength];
+		int numberOfIterations = isEven ? halfLength : halfLength + 1;
+		
+		for (int i = 0; i < numberOfIterations; i++) {
+			if (i < halfLength)
 				leftArray[i] = inputArray[i];
-			else
-				rightArray[i - inputArray.length / 2] = inputArray[i];
 
+			rightArray[i] = inputArray[halfLength + i];
 		}
 
 		return MergeArrays(MergeSortArray(leftArray), MergeSortArray(rightArray));
