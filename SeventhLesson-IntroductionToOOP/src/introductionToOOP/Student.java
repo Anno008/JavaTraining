@@ -32,6 +32,7 @@ public class Student {
 		{
 			Exams.remove(examToInvalidate);
 			IntroductionToOOP.Exams.remove(examToInvalidate);
+			System.out.println("invalidated exam of subject: " + examToInvalidate.Subject.Name + " from student: " + examToInvalidate.Student.Name);
 		}
 		else{
 			System.out.println("Warning! Student: " + Name + " didn't pass the exam: " + examToInvalidate.Subject.Name + ", nothing to invalidate." );
