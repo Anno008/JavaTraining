@@ -1,4 +1,4 @@
-package taskOneIntroductionToOOP;
+package introductionToOOP;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +25,13 @@ public class Student {
 	public void PassExam(Subject subject, int grade) {
 		Exam exam = new Exam(this, subject, grade);
 		Exams.add(exam);
-		TaskOneIntroductionToOOP.Exams.add(exam);
+		IntroductionToOOP.Exams.add(exam);
 	}
 	public void InvalidateExam(Exam examToInvalidate) {
 		if(Exams.contains(examToInvalidate))
 		{
 			Exams.remove(examToInvalidate);
-			TaskOneIntroductionToOOP.Exams.remove(examToInvalidate);
+			IntroductionToOOP.Exams.remove(examToInvalidate);
 		}
 		else{
 			System.out.println("Warning! Student: " + Name + " didn't pass the exam: " + examToInvalidate.Subject.Name + ", nothing to invalidate." );

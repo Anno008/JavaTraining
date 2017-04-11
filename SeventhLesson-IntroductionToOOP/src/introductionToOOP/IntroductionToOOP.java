@@ -1,11 +1,11 @@
-package taskOneIntroductionToOOP;
+package introductionToOOP;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TaskOneIntroductionToOOP {
+public class IntroductionToOOP {
 	public static List<Exam> Exams = new ArrayList<Exam>();
 	
 	public static void main(String[] args) {

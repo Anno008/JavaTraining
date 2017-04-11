@@ -1,4 +1,4 @@
-package taskOneIntroductionToOOP;
+package introductionToOOP;
 
 public class Exam {
 	public Student Student;
