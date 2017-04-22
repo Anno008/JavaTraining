@@ -13,7 +13,7 @@ public class TaskFourArrayMedian {
 	public static double GetArrayMedian(int[] array) {
 		int[] sortedArray = TaskOneArraySort.bubbleSort(array);
 
-		return array.length % 2 == 0 ? (double) array[array.length / 2] + (double) array[array.length / 2 - 1]
-				: (double) array[array.length / 2];
+		return sortedArray.length % 2 == 0 ? (double) sortedArray[sortedArray.length / 2] + (double) sortedArray[sortedArray.length / 2 - 1]
+				: (double) sortedArray[sortedArray.length / 2];
 	}
 }

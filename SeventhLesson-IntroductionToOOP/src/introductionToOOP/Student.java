@@ -95,6 +95,4 @@ public class Student {
 
 		return new Result(subject, lowestGrade, highestGrade, averageGrade);
 	}
-
-	
 }
