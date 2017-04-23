@@ -4,7 +4,7 @@ public class Subject {
 	private int id;
 	private String name;
 	private int espb;
-	
+
 	private static int counter = 1;
 
 	public Subject(SubjectsEnum name) {
@@ -16,7 +16,7 @@ public class Subject {
 	public Subject(String name, int espb) {
 		this.name = name;
 		this.espb = espb;
-		id = counter ++;
+		id = counter++;
 	}
 
 	private int setEspbForSubject(SubjectsEnum name) {
@@ -41,23 +41,28 @@ public class Subject {
 			return 0;
 		}
 	}
-	
-	public void printInformation(){
+
+	public void printInformation() {
 		System.out.println("Id: " + id + " Subject: " + name + " carries: " + espb + " ESPB points.");
 	}
-	public int getId(){
+
+	public int getId() {
 		return id;
 	}
+
 	public String getName() {
 		return name;
 	}
-	public int getEspb(){
+
+	public int getEspb() {
 		return espb;
 	}
-	public void setName(String name){
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	public void setEspb(int espb){
+
+	public void setEspb(int espb) {
 		this.espb = espb;
 	}
 }

@@ -4,14 +4,13 @@ public class Exam {
 	private Student student;
 	private Subject subject;
 	private int grade;
-	
-	public Exam(Student student, Subject subject, int grade){
+
+	public Exam(Student student, Subject subject, int grade) {
 		this.student = student;
 		this.subject = subject;
 		this.grade = grade;
 	}
-	
-	
+
 	public Student getStudent() {
 		return student;
 	}
