@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class UtilityMethods {
-	
+
 	static String ReadInput() {
 		String retVal = "";
 		try {
@@ -16,8 +16,8 @@ public class UtilityMethods {
 
 		return retVal;
 	}
-	
-	static void PrintOptions(){
+
+	static void PrintOptions() {
 		String output = 
 				"1. Display informations about all students\n" +
 				"2. Find a student based on index, and display it's information\n" +
@@ -25,7 +25,7 @@ public class UtilityMethods {
 				"4. Update a student\n" +
 				"5. Delete a student\n\n" +
 				"6. List all subjects\n" +
-				"7. Find subject based on id\n" + 
+				"7. Find a subject based on id, and display it's information\n" + 
 				"8. Create a subject\n" +
 				"9. Update a subject\n" +
 				"10. Delete a subject\n" +
@@ -34,8 +34,8 @@ public class UtilityMethods {
 		
 		System.out.println(output);
 	}
-	
-	public static int parseInt(String input){
+
+	public static int parseInt(String input) {
 		int number = 0;
 		try {
 			number = Integer.parseInt(input);
@@ -44,11 +44,11 @@ public class UtilityMethods {
 		}
 		return number;
 	}
-	
+
 	public static int askForInteger(String message) {
 		System.out.println(message);
 		String input = UtilityMethods.ReadInput();
 		int index = UtilityMethods.parseInt(input);
 		return index;
-}
+	}
 }
