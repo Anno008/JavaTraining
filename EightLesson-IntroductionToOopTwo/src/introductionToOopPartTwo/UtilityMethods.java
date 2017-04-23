@@ -44,4 +44,11 @@ public class UtilityMethods {
 		}
 		return number;
 	}
+	
+	public static int askForInteger(String message) {
+		System.out.println(message);
+		String input = UtilityMethods.ReadInput();
+		int index = UtilityMethods.parseInt(input);
+		return index;
+}
 }

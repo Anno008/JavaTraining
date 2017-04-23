@@ -43,7 +43,7 @@ public class Main {
 			displayInformationAboutStudents();
 			break;
 		case "2":
-			int index = askForIndex();
+			int index = UtilityMethods.askForInteger("Enter the index of the student.");
 			if(index == 0) break;
 			Student st = findAStudentBasedOnIndex(index);
 			if (st==null)
@@ -58,13 +58,13 @@ public class Main {
 			
 			break;
 		case "4":
-			Student s = findAStudentBasedOnIndex(askForIndex());
+			Student s = findAStudentBasedOnIndex(UtilityMethods.askForInteger("Enter the index of the student."));
 			updateStudent(s);
 			System.out.println("Student updated.");
 			s.printInformation();
 			break;
 		case "5":
-			Student sDel = findAStudentBasedOnIndex(askForIndex());
+			Student sDel = findAStudentBasedOnIndex(UtilityMethods.askForInteger("Enter the index of the student."));
 			students.remove(sDel);
 			System.out.println("Student deleted. ");
 			break;
@@ -72,7 +72,7 @@ public class Main {
 			displayInformationAboutSubjects();
 			break;
 		case "7":
-			int id = askForSubjectId();
+			int id = UtilityMethods.askForInteger("Enter the Id of the Subject.");
 			Subject sub = findSubjectBasedOnId(id);
 			if (sub==null)
 				System.out.println("There doesn't exist a subject with an id of: " + id);
@@ -86,18 +86,18 @@ public class Main {
 			
 			break;
 		case "9":
-			Subject updateSub = findSubjectBasedOnId(askForIndex());
+			Subject updateSub = findSubjectBasedOnId(UtilityMethods.askForInteger("Enter the index of the student."));
 			updateSubject(updateSub);
 			System.out.println("Subject updated.");
 			updateSub.printInformation();
 			break;
 		case "10":
-			Subject subDel = findSubjectBasedOnId(askForIndex());
+			Subject subDel = findSubjectBasedOnId(UtilityMethods.askForInteger("Enter the index of the student."));
 			subjects.remove(subDel);
 			System.out.println("Subject deleted. ");
 			break;
 		case "11":
-			int stindex = askForIndex();
+			int stindex = UtilityMethods.askForInteger("Enter the index of the student.");
 			if(stindex == 0) break;
 			Student stu = findAStudentBasedOnIndex(stindex);
 			if (stu==null){
@@ -105,7 +105,7 @@ public class Main {
 				break;			
 			}
 			
-			int subId = askForSubjectId();
+			int subId = UtilityMethods.askForInteger("Enter the Id of the Subject.");
 			Subject subj = findSubjectBasedOnId(subId);
 			if (subj==null){
 				System.out.println("There doesn't exist a subject with an id of: " + subId);
@@ -148,18 +148,11 @@ public class Main {
 	}
 
 	private static Subject findSubjectBasedOnId(int id) {
-		Subject st = null;
-		for (Subject subject : subjects) {
-			if(subject.getId() == id)
-				st = subject;
-		}
-		return st;
+		return subjects.stream().filter(s -> s.getId() == id).findFirst().orElse(null);
 	}
 
 	private static void displayInformationAboutSubjects() {
-		for (Subject sub : subjects) {
-			sub.printInformation();
-		}
+		subjects.forEach(s -> s.printInformation());
 		System.out.println();
 	}
 
@@ -191,34 +184,12 @@ public class Main {
 		return new Student(name, surname, index);
 	}
 
-
-	private static int askForIndex() {
-			System.out.println("Enter the index of the student.");
-			String input = UtilityMethods.ReadInput();
-			int index = UtilityMethods.parseInt(input);
-			return index;
-	}
-	
-	private static int askForSubjectId() {
-		System.out.println("Enter the Id of the Subject.");
-		String input = UtilityMethods.ReadInput();
-		int id = UtilityMethods.parseInt(input);
-		return id;
-}
-
 	private static Student findAStudentBasedOnIndex(int index) {
-		Student st = null;
-		for (Student student : students) {
-			if(student.getIndex() == index)
-				st = student;
-		}
-		return st;
+		return students.stream().filter(s -> s.getIndex() == index).findFirst().orElse(null);
 	}
 
 	private static void displayInformationAboutStudents(){
-		for (Student student : students) {
-			student.printInformation();
-		}
+		students.forEach(s -> s.printInformation());
 		System.out.println();
 	}
 }
