@@ -1,4 +1,4 @@
-package introductionToOOP;
+package introductionToOopPartTwo;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -23,8 +23,14 @@ public class UtilityMethods {
 				"2. Find a student based on index, and display it's information\n" +
 				"3. Create a student\n" +
 				"4. Update a student\n" +
-				"5. Delete a student\n" +
-				"6. Exit";
+				"5. Delete a student\n\n" +
+				"6. List all subjects\n" +
+				"7. Find subject based on id\n" + 
+				"8. Create a subject\n" +
+				"9. Update a subject\n" +
+				"10. Delete a subject\n" +
+				"11. Take an exam\n\n" +
+				"12. Exit";
 		
 		System.out.println(output);
 	}

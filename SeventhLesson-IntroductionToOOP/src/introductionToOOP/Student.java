@@ -25,13 +25,13 @@ public class Student {
 	public void PassExam(Subject subject, int grade) {
 		Exam exam = new Exam(this, subject, grade);
 		Exams.add(exam);
-		IntroductionToOOP.Exams.add(exam);
+		Main.Exams.add(exam);
 	}
 	public void InvalidateExam(Exam examToInvalidate) {
 		if(Exams.contains(examToInvalidate))
 		{
 			Exams.remove(examToInvalidate);
-			IntroductionToOOP.Exams.remove(examToInvalidate);
+			Main.Exams.remove(examToInvalidate);
 			System.out.println("invalidated exam of subject: " + examToInvalidate.Subject.Name + " from student: " + examToInvalidate.Student.Name);
 		}
 		else{
