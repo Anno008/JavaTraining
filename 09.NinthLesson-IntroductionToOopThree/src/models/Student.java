@@ -1,4 +1,4 @@
-package introductionToOopThree;
+package models;
 
 public class Student extends Person {
 	private int index;

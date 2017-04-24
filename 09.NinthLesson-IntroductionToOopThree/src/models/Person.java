@@ -1,4 +1,4 @@
-package introductionToOopThree;
+package models;
 
 public class Person {
 	private String firstName;

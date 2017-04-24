@@ -1,4 +1,4 @@
-package introductionToOopThree;
+package models;
 
 public class Teacher extends Person {
 	private Subject subject;
