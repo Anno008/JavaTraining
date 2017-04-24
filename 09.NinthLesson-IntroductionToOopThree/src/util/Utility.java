@@ -3,10 +3,9 @@ package util;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-
 public class Utility {
 	public static void displayTheMenu() {
-		System.out.println("===================================");
+		System.out.println(createString('=', 140));
 		System.out.println("1. Display students");
 		System.out.println("2. Find a student");
 		System.out.println("3. Create a student");
@@ -26,7 +25,7 @@ public class Utility {
 		System.out.println("17. Invalidate an exam\n");
 		System.out.println("18. Exit");
 	}
-	
+
 	public static String readString() {
 		String retVal = "";
 		try {
@@ -38,14 +37,14 @@ public class Utility {
 
 		return retVal;
 	}
-	
+
 	public static int readInteger(String message) {
 		System.out.println(message);
 		String input = readString();
 		int index = parseInt(input);
 		return index;
 	}
-	
+
 	private static int parseInt(String input) {
 		int number = 0;
 		try {
@@ -54,5 +53,13 @@ public class Utility {
 			System.out.println("Error while parsing a string to int, are you sure you entered a valid integer?");
 		}
 		return number;
+	}
+
+	public static String createString(char character, int times) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < times; i++)
+		sb.append(character);
+
+		return new String(sb);
 	}
 }

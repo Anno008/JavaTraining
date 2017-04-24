@@ -1,11 +1,11 @@
 package models;
 
 public class Teacher extends Person {
-	private Subject subject;
+	private int id;
 	
-	public Teacher(String firstName, String lastName, Subject subject) {
+	public Teacher(String firstName, String lastName, int id) {
 		super(firstName, lastName);
-		this.subject = subject;
+		this.id = id;
 	}
-
 }
+

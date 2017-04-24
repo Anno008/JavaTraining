@@ -3,7 +3,7 @@ package wrappers;
 public class Management {
 
 	public static void displayStudents() {
-		// TODO Auto-generated method stub
+		MainWrapper.displayStudentsInformation();
 		
 	}
 

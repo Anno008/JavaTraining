@@ -13,4 +13,23 @@ public class Subject {
 		this(name,espb);
 		this.teacher = teacher;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getEspb() {
+		return espb;
+	}
+	public void setEspb(int espb) {
+		this.espb = espb;
+	}
+	public Teacher getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
 }
