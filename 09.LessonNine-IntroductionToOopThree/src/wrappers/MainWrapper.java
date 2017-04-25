@@ -16,7 +16,7 @@ public class MainWrapper {
 	public static List<Subject> subjects;
 	public static List<Teacher> teachers;
 
-	public static void initializeStudents() {
+	private static void initializeStudents() {
 		
 		Teacher merlin = new Teacher("Merlin", "Ambrosius", 1);
 		Subject whichcraft = new Subject("Which craft", 20, merlin);
@@ -40,8 +40,91 @@ public class MainWrapper {
 		students.add(emma);
 	}
 
-	public static void displayStudentsInformation() {
-		//initializeStudents();
-		students.forEach(s -> s.printInfo());
+	
+		
+	
+	
+	public static void displayStudents() {
+		StudentWrapper.displayStudents(students);
+	}
+
+	public static void findStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void createStudent() {
+		Student student = StudentWrapper.createStudent();
+		students.add(student);
+	}
+
+	public static void updateStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void deleteStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void displaySubjects() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void findSubject() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void createSubject() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void updateSubject() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void deleteSubject() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void displayTeachers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void findTeacher() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void createTeacher() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void UpdateTeacher() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void deleteTeacher() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void takeExam() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void invalidateExam() {
+		// TODO Auto-generated method stub
+		
 	}
 }

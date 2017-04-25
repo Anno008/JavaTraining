@@ -1,7 +1,8 @@
 package main;
 
 import util.Utility;
-import wrappers.Management;
+import wrappers.MainWrapper;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -16,55 +17,55 @@ public class Main {
 	private static boolean makeDecision(int option, boolean repeat) {
 		switch (option) {
 		case 1:
-			Management.displayStudents();
+			MainWrapper.displayStudents();
 			break;
 		case 2:
-			Management.findStudent();
+			MainWrapper.findStudent();
 			break;
 		case 3:
-			Management.createStudent();
+			MainWrapper.createStudent();
 			break;
 		case 4:
-			Management.updateStudent();
+			MainWrapper.updateStudent();
 			break;
 		case 5:
-			Management.deleteStudent();
+			MainWrapper.deleteStudent();
 			break;
 		case 6:
-			Management.displaySubjects();
+			MainWrapper.displaySubjects();
 			break;
 		case 7:
-			Management.findSubject();
+			MainWrapper.findSubject();
 			break;
 		case 8:
-			Management.createSubject();
+			MainWrapper.createSubject();
 			break;
 		case 9:
-			Management.updateSubject();
+			MainWrapper.updateSubject();
 			break;
 		case 10:
-			Management.deleteSubject();
+			MainWrapper.deleteSubject();
 			break;
 		case 11:
-			Management.displayTeachers();
+			MainWrapper.displayTeachers();
 			break;
 		case 12:
-			Management.findTeacher();
+			MainWrapper.findTeacher();
 			break;
 		case 13:
-			Management.createTeacher();
+			MainWrapper.createTeacher();
 			break;
 		case 14:
-			Management.UpdateTeacher();
+			MainWrapper.UpdateTeacher();
 			break;
 		case 15:
-			Management.deleteTeacher();
+			MainWrapper.deleteTeacher();
 			break;
 		case 16:
-			Management.takeExam();
+			MainWrapper.takeExam();
 			break;
 		case 17:
-			Management.invalidateExam();
+			MainWrapper.invalidateExam();
 			break;
 		case 18:
 			return false;

@@ -1,5 +1,7 @@
 package models;
 
+import base.Person;
+
 public class Teacher extends Person {
 	private int id;
 	

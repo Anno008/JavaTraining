@@ -3,6 +3,7 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+import base.Person;
 import util.Utility;
 
 public class Student extends Person {
@@ -18,7 +19,7 @@ public class Student extends Person {
 	public void printInfo() {
 		String output = "";
 		output += Utility.createString('=',140);
-		output += "\nStudent; index: " + index + " name: " + getFirstName() + " last name: " + getLastName() ;
+		output += "\nStudent: " + getFullName() + " index: " + index ;
 
 		if (exams.size() != 0) {
 			output += "\nPassed:\n";
