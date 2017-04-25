@@ -1,0 +1,51 @@
+package wrappers;
+
+import java.util.List;
+import models.Subject;
+import util.Utility;
+
+public class SubjectWrapper {
+	public static void displaySubjects(List<Subject> subjects) {
+		subjects.forEach(s -> s.printInfo());
+	}
+
+	public static Subject findSubject(List<Subject> subjects) {
+		int index = Utility.readInteger("Enter the id of the subject");
+		Subject st = subjects.stream().filter(s -> s.getIndex() == index).findFirst().orElse(null);
+		if (st == null)
+			System.out.println("A subject with the id of: " + index + " doesn't exist.");
+
+		return st;
+	}
+
+	public static Subject createSubject(List<Subject> subjects) {
+		int index = 1;
+		for (int i = 1; i < subjects.size() + 2; i++) {
+			final int temp = i;
+			boolean exists = subjects.stream().anyMatch(s -> s.getIndex() == temp);
+			if (!exists) {
+				index = i;
+				break;
+			}
+		}
+
+		String name = Utility.readString("Enter the name of the subject.");
+		int espb = Utility.readInteger("Enter the espb points that the subject carries.");
+		Subject newSubject = new Subject(index, name, espb);
+		System.out.println("Subject successfully added. Index: " + newSubject.getIndex() + ", subject: " + newSubject.getName() + " with " + newSubject.getEspb() + " espb points.");
+		return newSubject;
+	}
+
+	public static void updateSubject(Subject subject) {
+		String name = Utility.readString("Enter the name of the subject.");
+		int espb = Utility.readInteger("Enter the espb points that the subject carries.");
+		subject.setName(name);
+		subject.setEspb(espb);
+		System.out.println("Subject successfully updated. Index: " + subject.getIndex() + ", subject: " + subject.getName());
+	}
+
+	public static void deleteSubject(List<Subject> subjects, Subject subject) {
+		subjects.remove(subject);
+		System.out.println("Subject deleted.");
+	}
+}

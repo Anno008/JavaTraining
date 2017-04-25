@@ -19,13 +19,16 @@ public class MainWrapper {
 	private static void initializeStudents() {
 		
 		Teacher merlin = new Teacher("Merlin", "Ambrosius", 1);
-		Subject whichcraft = new Subject("Which craft", 20, merlin);
+		Subject whichcraft = new Subject(1,"Which craft", 20, merlin);
+		subjects.add(whichcraft);
 		
 		Teacher snape = new Teacher("Snape","Severus",2);
-		Subject defenseAgainstTheDarkArts = new Subject("Defense against the dark arts", 30, snape);
+		Subject defenseAgainstTheDarkArts = new Subject(2,"Defense against the dark arts", 30, snape);
+		subjects.add(defenseAgainstTheDarkArts);
 		
 		Teacher sergei = new Teacher("Sergei","Adian",3);
-		Subject math = new Subject("Mathematics",25,sergei);
+		Subject math = new Subject(3,"Mathematics",25,sergei);
+		subjects.add(math);
 
 		Student jack = new Student("Jack", "Sparrow", 1);
 		jack.takeExam(new Exam(jack,math,5));
@@ -38,11 +41,8 @@ public class MainWrapper {
 		students.add(jack);
 		students.add(jason);
 		students.add(emma);
-		students.add(new Student("Harry","Joe",4));
 	}
 
-	
-		
 	
 	
 	public static void displayStudents() {
@@ -56,8 +56,7 @@ public class MainWrapper {
 	}
 
 	public static void createStudent() {
-		Student student = StudentWrapper.createStudent(students);
-		students.add(student);
+		students.add(StudentWrapper.createStudent(students));
 	}
 
 	public static void updateStudent() {
@@ -73,28 +72,29 @@ public class MainWrapper {
 	}
 
 	public static void displaySubjects() {
-		// TODO Auto-generated method stub
-		
+		SubjectWrapper.displaySubjects(subjects);
 	}
 
 	public static void findSubject() {
-		// TODO Auto-generated method stub
-		
+		Subject subj = SubjectWrapper.findSubject(subjects);
+		if(subj != null)
+			subj.printInfo();
 	}
 
 	public static void createSubject() {
-		// TODO Auto-generated method stub
-		
+		subjects.add(SubjectWrapper.createSubject(subjects));
 	}
 
 	public static void updateSubject() {
-		// TODO Auto-generated method stub
-		
+		Subject subj = SubjectWrapper.findSubject(subjects);
+		if(subj != null)
+			SubjectWrapper.updateSubject(subj);
 	}
 
 	public static void deleteSubject() {
-		// TODO Auto-generated method stub
-		
+		Subject subj = SubjectWrapper.findSubject(subjects);
+		if(subj != null)
+			SubjectWrapper.deleteSubject(subjects, subj);
 	}
 
 	public static void displayTeachers() {
