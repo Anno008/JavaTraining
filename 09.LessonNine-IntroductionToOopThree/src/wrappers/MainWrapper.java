@@ -38,6 +38,7 @@ public class MainWrapper {
 		students.add(jack);
 		students.add(jason);
 		students.add(emma);
+		students.add(new Student("Harry","Joe",4));
 	}
 
 	
@@ -49,23 +50,26 @@ public class MainWrapper {
 	}
 
 	public static void findStudent() {
-		// TODO Auto-generated method stub
-		
+		Student st = StudentWrapper.findStudent(students);
+		if(st != null)
+			st.printInfo();
 	}
 
 	public static void createStudent() {
-		Student student = StudentWrapper.createStudent();
+		Student student = StudentWrapper.createStudent(students);
 		students.add(student);
 	}
 
 	public static void updateStudent() {
-		// TODO Auto-generated method stub
-		
+		Student st = StudentWrapper.findStudent(students);
+		if(st != null)
+			StudentWrapper.updateStudent(st);
 	}
 
 	public static void deleteStudent() {
-		// TODO Auto-generated method stub
-		
+		Student st = StudentWrapper.findStudent(students);
+		if(st != null)
+			StudentWrapper.deleteStudent(students, st);
 	}
 
 	public static void displaySubjects() {

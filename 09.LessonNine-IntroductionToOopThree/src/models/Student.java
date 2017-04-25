@@ -56,4 +56,8 @@ public class Student extends Person {
 
 		exams.add(exam);
 	}
+	
+	public int getIndex(){
+		return this.index;
+	}
 }

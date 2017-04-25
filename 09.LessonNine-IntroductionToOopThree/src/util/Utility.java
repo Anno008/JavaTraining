@@ -26,11 +26,24 @@ public class Utility {
 		System.out.println("18. Exit");
 	}
 
-	public static String readString() {
+	public static String readString(String message) {
 		String retVal = "";
 		try {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-			retVal = reader.readLine();
+			boolean isOk = true;
+			do {
+				if(message.length() != 0)
+					System.out.println(message);
+				
+				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+				retVal = reader.readLine();
+				if(retVal.length() == 0){
+					isOk = false;
+					System.out.println("You must enter at least one character.");
+				}
+				else
+					isOk = true;
+			} while (!isOk);
+		
 		} catch (Exception e) {
 			e.printStackTrace(System.out);
 		}
@@ -39,8 +52,7 @@ public class Utility {
 	}
 
 	public static int readInteger(String message) {
-		System.out.println(message);
-		String input = readString();
+		String input = readString(message);
 		int index = parseInt(input);
 		return index;
 	}
