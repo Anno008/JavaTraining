@@ -18,23 +18,23 @@ public class MainWrapper {
 
 	private static void initializeStudents() {
 		
-		Teacher merlin = new Teacher("Merlin", "Ambrosius", 1);
+		Teacher merlin = new Teacher(1, "Merlin", "Ambrosius");
 		Subject whichcraft = new Subject(1,"Which craft", 20, merlin);
 		subjects.add(whichcraft);
 		
-		Teacher snape = new Teacher("Snape","Severus",2);
+		Teacher snape = new Teacher(2, "Snape","Severus");
 		Subject defenseAgainstTheDarkArts = new Subject(2,"Defense against the dark arts", 30, snape);
 		subjects.add(defenseAgainstTheDarkArts);
 		
-		Teacher sergei = new Teacher("Sergei","Adian",3);
+		Teacher sergei = new Teacher(3, "Sergei","Adian");
 		Subject math = new Subject(3,"Mathematics",25,sergei);
 		subjects.add(math);
 
-		Student jack = new Student("Jack", "Sparrow", 1);
+		Student jack = new Student(1, "Jack", "Sparrow");
 		jack.takeExam(new Exam(jack,math,5));
-		Student jason = new Student("Jason", "Momoa", 2);
+		Student jason = new Student(2, "Jason", "Momoa");
 		
-		Student emma = new Student("Emma", "Watson", 3);
+		Student emma = new Student(3, "Emma", "Watson");
 		emma.takeExam(new Exam(emma,defenseAgainstTheDarkArts,7));
 		emma.takeExam(new Exam(emma,whichcraft,10));
 		
@@ -98,28 +98,30 @@ public class MainWrapper {
 	}
 
 	public static void displayTeachers() {
-		// TODO Auto-generated method stub
-		
+		TeacherWrapper.displayTeachers(teachers);
 	}
 
 	public static void findTeacher() {
-		// TODO Auto-generated method stub
-		
+		Teacher t = TeacherWrapper.findTeacher(teachers);
+		if(t != null)
+			t.printInfo();
 	}
 
 	public static void createTeacher() {
-		// TODO Auto-generated method stub
+		teachers.add(TeacherWrapper.createTeacher(teachers));
 		
 	}
 
 	public static void UpdateTeacher() {
-		// TODO Auto-generated method stub
-		
+		Teacher t = TeacherWrapper.findTeacher(teachers);
+		if(t != null)
+			TeacherWrapper.updateTeacher(t);
 	}
 
 	public static void deleteTeacher() {
-		// TODO Auto-generated method stub
-		
+		Teacher t = TeacherWrapper.findTeacher(teachers);
+		if(t != null)
+			TeacherWrapper.deleteTeacher(teachers, t);
 	}
 
 	public static void takeExam() {

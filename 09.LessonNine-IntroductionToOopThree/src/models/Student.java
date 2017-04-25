@@ -7,19 +7,17 @@ import base.Person;
 import util.Utility;
 
 public class Student extends Person {
-	private int index;
 	private List<Exam> exams = new ArrayList<Exam>();
 	private double average = 0;
 
-	public Student(String firstName, String lastName, int index) {
-		super(firstName, lastName);
-		this.index = index;
+	public Student(int id, String firstName, String lastName) {
+		super(id, firstName, lastName);
 	}
 
 	public void printInfo() {
 		String output = "";
 		output += Utility.createString('=',140);
-		output += "\nStudent: " + getFullName() + " index: " + index ;
+		output += "\nStudent: " + getFullName() + " index: " + getId() ;
 
 		if (exams.size() != 0) {
 			output += "\nPassed:\n";
@@ -57,7 +55,7 @@ public class Student extends Person {
 		exams.add(exam);
 	}
 	
-	public int getIndex(){
-		return this.index;
+	public int getId(){
+		return getId();
 	}
 }
