@@ -6,7 +6,7 @@ import java.util.List;
 import models.*;
 
 public class MainWrapper {
-	static{
+	static {
 		initializeStarupData();
 	}
 	public static List<Student> students;
@@ -17,45 +17,43 @@ public class MainWrapper {
 		students = new ArrayList<Student>();
 		subjects = new ArrayList<Subject>();
 		teachers = new ArrayList<Teacher>();
-		
+
 		Teacher merlin = new Teacher(1, "Merlin", "Ambrosius");
 		teachers.add(merlin);
-		Subject whichcraft = new Subject(1,"Which craft", 20, merlin);
+		Subject whichcraft = new Subject(1, "Which craft", 20, merlin);
 		subjects.add(whichcraft);
-		
-		Teacher snape = new Teacher(2, "Snape","Severus");
+
+		Teacher snape = new Teacher(2, "Snape", "Severus");
 		teachers.add(snape);
-		Subject defenseAgainstTheDarkArts = new Subject(2,"Defense against the dark arts", 30, snape);
+		Subject defenseAgainstTheDarkArts = new Subject(2, "Defense against the dark arts", 30, snape);
 		subjects.add(defenseAgainstTheDarkArts);
-		
-		Teacher sergei = new Teacher(3, "Sergei","Adian");
+
+		Teacher sergei = new Teacher(3, "Sergei", "Adian");
 		teachers.add(sergei);
-		
-		Subject math = new Subject(3,"Mathematics",25,sergei);
+
+		Subject math = new Subject(3, "Mathematics", 25, sergei);
 		subjects.add(math);
 
 		Student jack = new Student(1, "Jack", "Sparrow");
-		jack.takeExam(new Exam(1, jack , math, 5));
+		jack.takeExam(new Exam(1, jack, math, 5));
 		Student jason = new Student(2, "Jason", "Momoa");
-		
+
 		Student emma = new Student(3, "Emma", "Watson");
-		emma.takeExam(new Exam(2, emma,defenseAgainstTheDarkArts,7));
-		emma.takeExam(new Exam(3 ,emma,whichcraft,10));
-		
+		emma.takeExam(new Exam(2, emma, defenseAgainstTheDarkArts, 7));
+		emma.takeExam(new Exam(3, emma, whichcraft, 10));
+
 		students.add(jack);
 		students.add(jason);
 		students.add(emma);
 	}
 
-	
-	
 	public static void displayStudents() {
 		StudentWrapper.displayStudents(students);
 	}
 
 	public static void findStudent() {
 		Student st = StudentWrapper.findStudent(students);
-		if(st != null)
+		if (st != null)
 			st.printInfo();
 	}
 
@@ -65,13 +63,13 @@ public class MainWrapper {
 
 	public static void updateStudent() {
 		Student st = StudentWrapper.findStudent(students);
-		if(st != null)
+		if (st != null)
 			StudentWrapper.updateStudent(st);
 	}
 
 	public static void deleteStudent() {
 		Student st = StudentWrapper.findStudent(students);
-		if(st != null)
+		if (st != null)
 			StudentWrapper.deleteStudent(students, st);
 	}
 
@@ -81,7 +79,7 @@ public class MainWrapper {
 
 	public static void findSubject() {
 		Subject subj = SubjectWrapper.findSubject(subjects);
-		if(subj != null)
+		if (subj != null)
 			subj.printInfo();
 	}
 
@@ -91,13 +89,13 @@ public class MainWrapper {
 
 	public static void updateSubject() {
 		Subject subj = SubjectWrapper.findSubject(subjects);
-		if(subj != null)
+		if (subj != null)
 			SubjectWrapper.updateSubject(subj);
 	}
 
 	public static void deleteSubject() {
 		Subject subj = SubjectWrapper.findSubject(subjects);
-		if(subj != null)
+		if (subj != null)
 			SubjectWrapper.deleteSubject(subjects, subj);
 	}
 
@@ -107,7 +105,7 @@ public class MainWrapper {
 
 	public static void findTeacher() {
 		Teacher t = TeacherWrapper.findTeacher(teachers);
-		if(t != null)
+		if (t != null)
 			t.printInfo();
 	}
 
@@ -117,13 +115,13 @@ public class MainWrapper {
 
 	public static void UpdateTeacher() {
 		Teacher t = TeacherWrapper.findTeacher(teachers);
-		if(t != null)
+		if (t != null)
 			TeacherWrapper.updateTeacher(t);
 	}
 
 	public static void deleteTeacher() {
 		Teacher t = TeacherWrapper.findTeacher(teachers);
-		if(t != null)
+		if (t != null)
 			TeacherWrapper.deleteTeacher(teachers, t);
 	}
 
@@ -132,6 +130,6 @@ public class MainWrapper {
 	}
 
 	public static void invalidateExam() {
-		ExamWrapper.invalidateExam(students,subjects);
+		ExamWrapper.invalidateExam(students, subjects);
 	}
 }
