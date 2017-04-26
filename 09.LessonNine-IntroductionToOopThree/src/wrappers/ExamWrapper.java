@@ -18,17 +18,15 @@ public class ExamWrapper {
 
 	public static void invalidateExam(List<Student> students, List<Subject> subjects) {
 		Student st = StudentWrapper.findStudent(students);
-		Subject subj = SubjectWrapper.findSubject(subjects);
 		
 		int examId = Utility.readInteger("Enter the id of the exam that you want to invalidate belonging to the student: " + st.getFullName());
 		Exam exam = st.getExams().stream().filter(e -> e.getIndex() == examId).findFirst().orElse(null);
-		if(exam == null){
-			System.out.println("Warning! Student: " + st.getFullName() + " didn't pass the exam: " + exam.getSubject().getName() + ", nothing to invalidate." );
-		}
-		else{
-			st.invalidateExam(exam);	
-		}
 		
+		if(exam == null)
+			System.out.println("Exam with the id: " + examId + " doesn't exist");
+		
+		else
+			st.invalidateExam(exam);	
 	}
 	
 	private static Exam createExam(List<Exam> exams, Student student, Subject subject, int grade) {

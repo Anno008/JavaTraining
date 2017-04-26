@@ -113,7 +113,6 @@ public class MainWrapper {
 
 	public static void createTeacher() {
 		teachers.add(TeacherWrapper.createTeacher(teachers));
-		
 	}
 
 	public static void UpdateTeacher() {

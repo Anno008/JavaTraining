@@ -54,11 +54,6 @@ public class Student extends Person {
 		exams.add(exam);
 	}
 	
-//	public void PassExam(int id, Subject subject, int grade) {
-//		Exam exam = new Exam(id, this, subject, grade);
-//		exams.add(exam);
-//	}
-	
 	public void invalidateExam(Exam examToInvalidate) {
 			exams.remove(examToInvalidate);
 			System.out.println("invalidated exam of subject: " + examToInvalidate.getSubject().getName() + " from student: " + getFullName());
