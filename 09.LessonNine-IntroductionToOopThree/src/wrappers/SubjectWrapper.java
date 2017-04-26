@@ -1,7 +1,7 @@
 package wrappers;
 
 import java.util.List;
-import models.Subject;
+import models.*;
 import util.Utility;
 
 public class SubjectWrapper {
@@ -18,7 +18,7 @@ public class SubjectWrapper {
 		return st;
 	}
 
-	public static Subject createSubject(List<Subject> subjects) {
+	public static Subject createSubject(List<Subject> subjects, List<Teacher> teachers) {
 		int index = 1;
 		for (int i = 1; i < subjects.size() + 2; i++) {
 			final int temp = i;
@@ -31,8 +31,9 @@ public class SubjectWrapper {
 
 		String name = Utility.readString("Enter the name of the subject.");
 		int espb = Utility.readInteger("Enter the espb points that the subject carries.");
-		Subject newSubject = new Subject(index, name, espb);
-		System.out.println("Subject successfully added. Index: " + newSubject.getIndex() + ", subject: " + newSubject.getName() + " with " + newSubject.getEspb() + " espb points.");
+		Teacher t = TeacherWrapper.findTeacher(teachers);
+		Subject newSubject = new Subject(index, name, espb, t);
+		System.out.println("Subject successfully added. Index: " + newSubject.getIndex() + ", subject: " + newSubject.getName() + " with " + newSubject.getEspb() + " espb points. Held by teacher: " + newSubject.getTeacher().getFullName());
 		return newSubject;
 	}
 

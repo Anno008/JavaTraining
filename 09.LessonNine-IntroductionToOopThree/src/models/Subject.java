@@ -6,14 +6,10 @@ public class Subject {
 	private int espb;
 	private Teacher teacher;
 
-	public Subject(int id, String name, int espb) {
-		this.index = id;
+	public Subject(int index, String name, int espb, Teacher teacher) {
+		this.index = index;
 		this.name = name;
 		this.espb = espb;
-	}
-
-	public Subject(int index, String name, int espb, Teacher teacher) {
-		this(index, name, espb);
 		this.teacher = teacher;
 	}
 
@@ -50,7 +46,6 @@ public class Subject {
 	}
 
 	public void printInfo() {
-		System.out.println(
-				"Subject: " + name + " carries: " + espb + " espb points, held by teacher: " + teacher.getFullName());
+		System.out.println("Id: " + getIndex() + " Subject: " + name + " carries: " + espb + " espb points, held by teacher: " + teacher.getFullName());
 	}
 }

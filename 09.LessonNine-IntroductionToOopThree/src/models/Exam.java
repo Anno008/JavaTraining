@@ -1,11 +1,13 @@
 package models;
 
 public class Exam {
+	private int id;
 	private Student student;
 	private Subject subject;
 	private int grade;
 	
-	public Exam(Student student,Subject subject, int grade){
+	public Exam(int id, Student student,Subject subject, int grade){
+		this.id = id;
 		this.student = student;
 		this.subject = subject;
 		this.grade = grade;
@@ -33,5 +35,13 @@ public class Exam {
 
 	public void setGrade(int grade) {
 		this.grade = grade;
+	}
+
+	public int getIndex() {
+		return id;
+	}
+
+	public void setIndex(int id) {
+		this.id = id;
 	}
 }

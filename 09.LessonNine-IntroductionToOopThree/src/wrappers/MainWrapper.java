@@ -7,36 +7,40 @@ import models.*;
 
 public class MainWrapper {
 	static{
-		students = new ArrayList<Student>();
-		subjects = new ArrayList<Subject>();
-		teachers = new ArrayList<Teacher>();
-		initializeStudents();
+		initializeStarupData();
 	}
 	public static List<Student> students;
 	public static List<Subject> subjects;
 	public static List<Teacher> teachers;
 
-	private static void initializeStudents() {
+	private static void initializeStarupData() {
+		students = new ArrayList<Student>();
+		subjects = new ArrayList<Subject>();
+		teachers = new ArrayList<Teacher>();
 		
 		Teacher merlin = new Teacher(1, "Merlin", "Ambrosius");
+		teachers.add(merlin);
 		Subject whichcraft = new Subject(1,"Which craft", 20, merlin);
 		subjects.add(whichcraft);
 		
 		Teacher snape = new Teacher(2, "Snape","Severus");
+		teachers.add(snape);
 		Subject defenseAgainstTheDarkArts = new Subject(2,"Defense against the dark arts", 30, snape);
 		subjects.add(defenseAgainstTheDarkArts);
 		
 		Teacher sergei = new Teacher(3, "Sergei","Adian");
+		teachers.add(sergei);
+		
 		Subject math = new Subject(3,"Mathematics",25,sergei);
 		subjects.add(math);
 
 		Student jack = new Student(1, "Jack", "Sparrow");
-		jack.takeExam(new Exam(jack,math,5));
+		jack.takeExam(new Exam(1, jack , math, 5));
 		Student jason = new Student(2, "Jason", "Momoa");
 		
 		Student emma = new Student(3, "Emma", "Watson");
-		emma.takeExam(new Exam(emma,defenseAgainstTheDarkArts,7));
-		emma.takeExam(new Exam(emma,whichcraft,10));
+		emma.takeExam(new Exam(2, emma,defenseAgainstTheDarkArts,7));
+		emma.takeExam(new Exam(3 ,emma,whichcraft,10));
 		
 		students.add(jack);
 		students.add(jason);
@@ -82,7 +86,7 @@ public class MainWrapper {
 	}
 
 	public static void createSubject() {
-		subjects.add(SubjectWrapper.createSubject(subjects));
+		subjects.add(SubjectWrapper.createSubject(subjects, teachers));
 	}
 
 	public static void updateSubject() {
@@ -125,12 +129,10 @@ public class MainWrapper {
 	}
 
 	public static void takeExam() {
-		// TODO Auto-generated method stub
-		
+		ExamWrapper.takeExam(students, subjects);
 	}
 
 	public static void invalidateExam() {
-		// TODO Auto-generated method stub
-		
+		ExamWrapper.invalidateExam(students,subjects);
 	}
 }

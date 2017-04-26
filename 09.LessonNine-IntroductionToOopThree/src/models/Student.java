@@ -22,7 +22,7 @@ public class Student extends Person {
 		if (exams.size() != 0) {
 			output += "\nPassed:\n";
 			for (Exam exam : exams)
-				output += "\tSubject: " + exam.getSubject().getName() + " which carries: " + exam.getSubject().getEspb()
+				output += "\tId: " + exam.getIndex() + ", Subject: " + exam.getSubject().getName() + " which carries: " + exam.getSubject().getEspb()
 						+ " espb points, earned a grade: " + exam.getGrade() + " graded by teacher: "
 						+ exam.getSubject().getTeacher().getFullName() + "\n";
 
@@ -47,15 +47,28 @@ public class Student extends Person {
 	public void takeExam(Exam exam) {
 		for (Exam e : exams)
 			if (e.getSubject().getName().equals(exam.getSubject().getName())) {
-				System.out.println(
-						"Student: " + getFullName() + " has already taken the exam: " + exam.getSubject().getName());
+				System.out.println("Student: " + getFullName() + " has already taken the exam: " + exam.getSubject().getName());
 				return;
 			}
 
 		exams.add(exam);
 	}
 	
+//	public void PassExam(int id, Subject subject, int grade) {
+//		Exam exam = new Exam(id, this, subject, grade);
+//		exams.add(exam);
+//	}
+	
+	public void invalidateExam(Exam examToInvalidate) {
+			exams.remove(examToInvalidate);
+			System.out.println("invalidated exam of subject: " + examToInvalidate.getSubject().getName() + " from student: " + getFullName());
+	}
+	
 	public int getId(){
-		return getId();
+		return super.getId();
+	}
+	
+	public List<Exam> getExams(){
+		return exams;
 	}
 }
