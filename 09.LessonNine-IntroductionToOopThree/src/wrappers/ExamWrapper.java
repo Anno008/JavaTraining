@@ -12,7 +12,7 @@ public class ExamWrapper {
 		Subject subj = SubjectWrapper.findSubject(subjects);
 		
 		int grade = Utility.readInteger("Enter the grade the student received on the subject: " + subj.getName());
-		Exam exam = createExam(st.getExams() , st, subj, grade);
+		Exam exam = createExam(st.getExams(), st, subj, grade);
 		st.getExams().add(exam);
 	}
 
