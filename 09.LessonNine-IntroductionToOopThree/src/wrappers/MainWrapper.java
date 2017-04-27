@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.*;
+import util.ObjectDecorator;
 
 public class MainWrapper {
 	static {
@@ -78,25 +79,33 @@ public class MainWrapper {
 	}
 
 	public static void findSubject() {
-		Subject subj = SubjectWrapper.findSubject(subjects);
-		if (subj != null)
-			subj.getInfo();
+		ObjectDecorator<Subject> result = SubjectWrapper.findSubject(subjects);
+		if (result.getObj() != null)
+			System.out.println(result.getObj().getInfo());
+		else
+			System.out.println(result.getOutput());
 	}
 
 	public static void createSubject() {
-		subjects.add(SubjectWrapper.createSubject(subjects, teachers));
+		ObjectDecorator<Subject> result = SubjectWrapper.createSubject(subjects, teachers);
+		subjects.add(result.getObj());
+		System.out.println(result.getOutput());
 	}
 
 	public static void updateSubject() {
-		Subject subj = SubjectWrapper.findSubject(subjects);
-		if (subj != null)
-			SubjectWrapper.updateSubject(subj);
+		ObjectDecorator<Subject> result = SubjectWrapper.findSubject(subjects);
+		if (result.getObj() != null)
+			System.out.println(SubjectWrapper.updateSubject(result.getObj()));
+		else
+			System.out.println(result.getOutput());
 	}
 
 	public static void deleteSubject() {
-		Subject subj = SubjectWrapper.findSubject(subjects);
-		if (subj != null)
-			SubjectWrapper.deleteSubject(subjects, subj);
+		ObjectDecorator<Subject> result = SubjectWrapper.findSubject(subjects);
+		if (result.getObj() != null)
+			System.out.println(SubjectWrapper.deleteSubject(subjects, result.getObj()));
+		else
+			System.out.println(result.getOutput());
 	}
 
 	public static void displayTeachers() {

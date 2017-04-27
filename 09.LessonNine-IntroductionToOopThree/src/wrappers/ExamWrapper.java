@@ -3,17 +3,18 @@ package wrappers;
 import java.util.List;
 
 import models.*;
+import util.ObjectDecorator;
 import util.Utility;
 
 public class ExamWrapper {
 
 	public static String takeExam(List<Student> students, List<Subject> subjects) {
 		Student st = StudentWrapper.findStudent(students);
-		Subject subj = SubjectWrapper.findSubject(subjects);
+		ObjectDecorator<Subject> subj = SubjectWrapper.findSubject(subjects);
 		
-		if(st != null && subj != null){
-			int grade = Utility.readInteger("Enter the grade the student received on the subject: " + subj.getName());
-			Exam exam = createExam(st.getExams(), st, subj, grade);
+		if(st != null && subj.getObj() != null){
+			int grade = Utility.readInteger("Enter the grade the student received on the subject: " + subj.getObj().getName());
+			Exam exam = createExam(st.getExams(), st, subj.getObj(), grade);
 			
 			for (Exam e : st.getExams())
 				if (e.getSubject().getName().equals(exam.getSubject().getName())) {
