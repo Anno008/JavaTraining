@@ -21,7 +21,7 @@ public class Student extends Person {
 		if (exams.size() != 0) {
 			output += "\nPassed:\n";
 			for (Exam exam : exams)
-				output += "\tId: " + exam.getIndex() + ", Subject: " + exam.getSubject().getName() + " which carries: " + exam.getSubject().getEspb()
+				output += "\tId: " + exam.getId() + ", Subject: " + exam.getSubject().getName() + " which carries: " + exam.getSubject().getEspb()
 						+ " espb points, earned a grade: " + exam.getGrade() + " graded by teacher: "
 						+ exam.getSubject().getTeacher().getFullName() + "\n";
 

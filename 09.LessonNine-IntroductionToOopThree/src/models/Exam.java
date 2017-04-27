@@ -37,11 +37,11 @@ public class Exam {
 		this.grade = grade;
 	}
 
-	public int getIndex() {
+	public int getId() {
 		return id;
 	}
 
-	public void setIndex(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 }

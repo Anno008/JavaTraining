@@ -5,6 +5,7 @@ import java.util.List;
 
 import models.*;
 import util.ObjectDecorator;
+import util.Utility;
 
 public class MainWrapper {
 	static {
@@ -78,6 +79,16 @@ public class MainWrapper {
 		ObjectDecorator<Student> result = StudentWrapper.findStudent(students);
 		if (result.getObj() != null)
 			System.out.println(StudentWrapper.deleteStudent(students, result.getObj()));
+	}
+
+	public static void filterStudentsBasedOnAverageGrade() {
+		double grade = Utility.readDouble("Enter the minimum average grade for displaying students");
+		if(students.stream().anyMatch(s -> s.getAverage() > grade)){
+			System.out.println("Students with a higher average grade than: " + grade + " are:");
+			students.forEach(s -> System.out.println(s.getInfo()));
+			return;
+		}
+		System.out.println("Not a single student has an average grade higher than: " + grade);
 	}
 
 	public static void displaySubjects() {

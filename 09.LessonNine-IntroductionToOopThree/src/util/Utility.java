@@ -31,10 +31,26 @@ public class Utility {
 
 	public static int readInteger(String message) {
 		String input = readString(message);
-		int index = parseInt(input);
-		return index;
+		int number = parseInt(input);
+		return number;
+	}
+	
+	public static double readDouble(String message) {
+		String input = readString(message);
+		double number = parseDouble(input);
+		return number;
 	}
 
+	private static double parseDouble(String input) {
+		double number = 0;
+		try {
+			number = Double.parseDouble(input);
+		} catch (Exception e) {
+			System.out.println("Error while parsing a string to a double, are you sure you entered a valid number?");
+		}
+		return number;
+	}
+	
 	private static int parseInt(String input) {
 		int number = 0;
 		try {

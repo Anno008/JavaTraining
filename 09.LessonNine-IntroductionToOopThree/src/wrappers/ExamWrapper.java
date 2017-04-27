@@ -30,7 +30,7 @@ public class ExamWrapper {
 		ObjectDecorator<Student> st = StudentWrapper.findStudent(students);
 		
 		int examId = Utility.readInteger("Enter the id of the exam that you want to invalidate belonging to the student: " + st.getObj().getFullName());
-		Exam exam = st.getObj().getExams().stream().filter(e -> e.getIndex() == examId).findFirst().orElse(null);
+		Exam exam = st.getObj().getExams().stream().filter(e -> e.getId() == examId).findFirst().orElse(null);
 		
 		if(exam == null)
 			return "Exam with the id: " + examId + " doesn't exist";
@@ -45,7 +45,7 @@ public class ExamWrapper {
 		int index = 1;
 		for (int i = 1; i < exams.size() + 2; i++) {
 			final int temp = i;
-			boolean exists = exams.stream().anyMatch(s -> s.getIndex() == temp);
+			boolean exists = exams.stream().anyMatch(s -> s.getId() == temp);
 			if (!exists) {
 				index = i;
 				break;
