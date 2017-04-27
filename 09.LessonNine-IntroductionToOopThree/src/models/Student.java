@@ -8,13 +8,12 @@ import util.Utility;
 
 public class Student extends Person {
 	private List<Exam> exams = new ArrayList<Exam>();
-	private double average = 0;
 
 	public Student(int id, String firstName, String lastName) {
 		super(id, firstName, lastName);
 	}
 
-	public void printInfo() {
+	public String getInfo() {
 		String output = "";
 		output += Utility.createString('=',140);
 		output += "\nStudent: " + getFullName() + " index: " + getId() ;
@@ -26,14 +25,14 @@ public class Student extends Person {
 						+ " espb points, earned a grade: " + exam.getGrade() + " graded by teacher: "
 						+ exam.getSubject().getTeacher().getFullName() + "\n";
 
-			average = getAverage();
+			double average = getAverage();
 			output += Utility.createString('-', 140) + "\n";
 			output += "\tAverage grade: " + average;
 		}
 		else
 			output += "\n" + Utility.createString('-', 140) + "\n" + "\n\tDoesn't have any passed exams.";
 		
-		System.out.println(output);
+		return output;
 	}
 
 	public double getAverage() {
@@ -44,19 +43,21 @@ public class Student extends Person {
 		return temp / exams.size();
 	}
 
-	public void takeExam(Exam exam) {
+	public String takeExam(Exam exam) {
+		String output = "";
 		for (Exam e : exams)
 			if (e.getSubject().getName().equals(exam.getSubject().getName())) {
-				System.out.println("Student: " + getFullName() + " has already taken the exam: " + exam.getSubject().getName());
-				return;
+				output += "Student: " + getFullName() + " has already taken the exam: " + exam.getSubject().getName() + "\n";
+				return output;
 			}
 
 		exams.add(exam);
+		return output;
 	}
 	
-	public void invalidateExam(Exam examToInvalidate) {
+	public String invalidateExam(Exam examToInvalidate) {
 			exams.remove(examToInvalidate);
-			System.out.println("invalidated exam of subject: " + examToInvalidate.getSubject().getName() + " from student: " + getFullName());
+			return "invalidated exam of subject: " + examToInvalidate.getSubject().getName() + " from student: " + getFullName();
 	}
 	
 	public int getId(){

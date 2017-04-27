@@ -6,12 +6,12 @@ import util.Utility;
 
 public class SubjectWrapper {
 	public static void displaySubjects(List<Subject> subjects) {
-		subjects.forEach(s -> s.printInfo());
+		subjects.forEach(s -> s.getInfo());
 	}
 
 	public static Subject findSubject(List<Subject> subjects) {
 		int index = Utility.readInteger("Enter the id of the subject");
-		Subject st = subjects.stream().filter(s -> s.getIndex() == index).findFirst().orElse(null);
+		Subject st = subjects.stream().filter(s -> s.getId() == index).findFirst().orElse(null);
 		if (st == null)
 			System.out.println("A subject with the id of: " + index + " doesn't exist.");
 
@@ -22,7 +22,7 @@ public class SubjectWrapper {
 		int index = 1;
 		for (int i = 1; i < subjects.size() + 2; i++) {
 			final int temp = i;
-			boolean exists = subjects.stream().anyMatch(s -> s.getIndex() == temp);
+			boolean exists = subjects.stream().anyMatch(s -> s.getId() == temp);
 			if (!exists) {
 				index = i;
 				break;
@@ -33,7 +33,7 @@ public class SubjectWrapper {
 		int espb = Utility.readInteger("Enter the espb points that the subject carries.");
 		Teacher t = TeacherWrapper.findTeacher(teachers);
 		Subject newSubject = new Subject(index, name, espb, t);
-		System.out.println("Subject successfully added. Index: " + newSubject.getIndex() + ", subject: " + newSubject.getName() + " with " + newSubject.getEspb() + " espb points. Held by teacher: " + newSubject.getTeacher().getFullName());
+		System.out.println("Subject successfully added. Index: " + newSubject.getId() + ", subject: " + newSubject.getName() + " with " + newSubject.getEspb() + " espb points. Held by teacher: " + newSubject.getTeacher().getFullName());
 		return newSubject;
 	}
 
@@ -42,7 +42,7 @@ public class SubjectWrapper {
 		int espb = Utility.readInteger("Enter the espb points that the subject carries.");
 		subject.setName(name);
 		subject.setEspb(espb);
-		System.out.println("Subject successfully updated. Index: " + subject.getIndex() + ", subject: " + subject.getName());
+		System.out.println("Subject successfully updated. Index: " + subject.getId() + ", subject: " + subject.getName());
 	}
 
 	public static void deleteSubject(List<Subject> subjects, Subject subject) {

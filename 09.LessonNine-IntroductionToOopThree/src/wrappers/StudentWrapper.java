@@ -7,7 +7,7 @@ import util.Utility;
 
 public class StudentWrapper {
 	public static void displayStudents(List<Student> students) {
-		students.forEach(s -> s.printInfo());
+		students.forEach(s -> System.out.println(s.getInfo()));
 	}
 
 	public static Student findStudent(List<Student> students) {

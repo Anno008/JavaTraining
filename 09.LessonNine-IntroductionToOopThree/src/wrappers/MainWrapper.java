@@ -35,12 +35,12 @@ public class MainWrapper {
 		subjects.add(math);
 
 		Student jack = new Student(1, "Jack", "Sparrow");
-		jack.takeExam(new Exam(1, jack, math, 5));
+		System.out.println(jack.takeExam(new Exam(1, jack, math, 5)));
 		Student jason = new Student(2, "Jason", "Momoa");
 
 		Student emma = new Student(3, "Emma", "Watson");
-		emma.takeExam(new Exam(2, emma, defenseAgainstTheDarkArts, 7));
-		emma.takeExam(new Exam(3, emma, whichcraft, 10));
+		System.out.println(emma.takeExam(new Exam(2, emma, defenseAgainstTheDarkArts, 7)));
+		System.out.println(emma.takeExam(new Exam(3, emma, whichcraft, 10)));
 
 		students.add(jack);
 		students.add(jason);
@@ -54,7 +54,7 @@ public class MainWrapper {
 	public static void findStudent() {
 		Student st = StudentWrapper.findStudent(students);
 		if (st != null)
-			st.printInfo();
+			System.out.println(st.getInfo());
 	}
 
 	public static void createStudent() {
@@ -80,7 +80,7 @@ public class MainWrapper {
 	public static void findSubject() {
 		Subject subj = SubjectWrapper.findSubject(subjects);
 		if (subj != null)
-			subj.printInfo();
+			subj.getInfo();
 	}
 
 	public static void createSubject() {

@@ -11,9 +11,11 @@ public class ExamWrapper {
 		Student st = StudentWrapper.findStudent(students);
 		Subject subj = SubjectWrapper.findSubject(subjects);
 		
-		int grade = Utility.readInteger("Enter the grade the student received on the subject: " + subj.getName());
-		Exam exam = createExam(st.getExams(), st, subj, grade);
-		st.getExams().add(exam);
+		if(st != null && subj != null){
+			int grade = Utility.readInteger("Enter the grade the student received on the subject: " + subj.getName());
+			Exam exam = createExam(st.getExams(), st, subj, grade);
+			st.getExams().add(exam);
+		}
 	}
 
 	public static void invalidateExam(List<Student> students, List<Subject> subjects) {
@@ -26,7 +28,7 @@ public class ExamWrapper {
 			System.out.println("Exam with the id: " + examId + " doesn't exist");
 		
 		else
-			st.invalidateExam(exam);	
+			System.out.println(st.invalidateExam(exam));	
 	}
 	
 	private static Exam createExam(List<Exam> exams, Student student, Subject subject, int grade) {

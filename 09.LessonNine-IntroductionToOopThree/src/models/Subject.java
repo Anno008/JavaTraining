@@ -1,13 +1,13 @@
 package models;
 
 public class Subject {
-	private int index;
+	private int id;
 	private String name;
 	private int espb;
 	private Teacher teacher;
 
-	public Subject(int index, String name, int espb, Teacher teacher) {
-		this.index = index;
+	public Subject(int id, String name, int espb, Teacher teacher) {
+		this.id = id;
 		this.name = name;
 		this.espb = espb;
 		this.teacher = teacher;
@@ -33,19 +33,11 @@ public class Subject {
 		return teacher;
 	}
 
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
+	public int getId() {
+		return id;
 	}
 
-	public int getIndex() {
-		return index;
-	}
-
-	public void setIndex(int index) {
-		this.index = index;
-	}
-
-	public void printInfo() {
-		System.out.println("Id: " + getIndex() + " Subject: " + name + " carries: " + espb + " espb points, held by teacher: " + teacher.getFullName());
+	public String getInfo() {
+		return "Id: " + getId() + " Subject: " + name + " carries: " + espb + " espb points, held by teacher: " + teacher.getFullName();
 	}
 }
