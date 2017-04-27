@@ -109,29 +109,37 @@ public class MainWrapper {
 	}
 
 	public static void displayTeachers() {
-		TeacherWrapper.displayTeachers(teachers);
+		System.out.println(TeacherWrapper.displayTeachers(teachers));
 	}
 
 	public static void findTeacher() {
-		Teacher t = TeacherWrapper.findTeacher(teachers);
-		if (t != TeacherWrapper.findTeacher(teachers))
-			System.out.println(t.getInfo());
+		ObjectDecorator<Teacher> result = TeacherWrapper.findTeacher(teachers);
+		if (result.getObj() != null)
+			System.out.println(result.getObj().getInfo());
+		else
+			System.out.println(result.getOutput());
 	}
 
 	public static void createTeacher() {
-		teachers.add(TeacherWrapper.createTeacher(teachers));
+		ObjectDecorator<Teacher> result = TeacherWrapper.createTeacher(teachers);
+		teachers.add(result.getObj());
+		System.out.println(result.getOutput());
 	}
 
 	public static void UpdateTeacher() {
-		Teacher t = TeacherWrapper.findTeacher(teachers);
-		if (t != null)
-			TeacherWrapper.updateTeacher(t);
+		ObjectDecorator<Teacher> result = TeacherWrapper.findTeacher(teachers);
+		if (result.getObj() != null)
+			System.out.println(TeacherWrapper.updateTeacher(result.getObj()));
+		else
+			System.out.println(result.getOutput());
 	}
 
 	public static void deleteTeacher() {
-		Teacher t = TeacherWrapper.findTeacher(teachers);
-		if (t != null)
-			TeacherWrapper.deleteTeacher(teachers, t);
+		ObjectDecorator<Teacher> result = TeacherWrapper.findTeacher(teachers);
+		if (result.getObj() != null)
+			System.out.println(TeacherWrapper.deleteTeacher(teachers, result.getObj()));
+		else
+			System.out.println(result.getOutput());
 	}
 
 	public static void takeExam() {

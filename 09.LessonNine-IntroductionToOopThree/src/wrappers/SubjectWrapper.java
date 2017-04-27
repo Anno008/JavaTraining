@@ -8,9 +8,8 @@ import util.Utility;
 public class SubjectWrapper {
 	public static String displaySubjects(List<Subject> subjects) {
 		String output = "";
-		for (Subject subject : subjects) {
+		for (Subject subject : subjects) 
 			output += subject.getInfo() + "\n";
-		}
 		
 		return output;
 	}
@@ -38,8 +37,8 @@ public class SubjectWrapper {
 
 		String name = Utility.readString("Enter the name of the subject.");
 		int espb = Utility.readInteger("Enter the espb points that the subject carries.");
-		Teacher t = TeacherWrapper.findTeacher(teachers);
-		Subject newSubject = new Subject(index, name, espb, t);
+		ObjectDecorator<Teacher> t = TeacherWrapper.findTeacher(teachers);
+		Subject newSubject = new Subject(index, name, espb, t.getObj());
 		return new ObjectDecorator<Subject>(newSubject,
 				"Subject successfully added. Index: " + newSubject.getId() + ", subject: " + newSubject.getName()
 						+ " with " + newSubject.getEspb() + " espb points. Held by teacher: "
