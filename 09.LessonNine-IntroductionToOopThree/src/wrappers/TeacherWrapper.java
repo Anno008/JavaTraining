@@ -7,7 +7,7 @@ import util.Utility;
 
 public class TeacherWrapper {
 	public static void displayTeachers(List<Teacher> teachers) {
-		teachers.forEach(s -> s.printInfo());
+		teachers.forEach(s -> System.out.println(s.getInfo()));
 	}
 
 	public static Teacher findTeacher(List<Teacher> teachers) {

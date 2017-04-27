@@ -7,8 +7,7 @@ public class Teacher extends Person {
 		super(id, firstName, lastName);
 	}
 	
-	public void printInfo() {
-		System.out.println("Id: " + getId() + ", teacher: " + getFullName());
+	public String getInfo() {
+		return "Id: " + getId() + ", teacher: " + getFullName();
 	}
 }
-

@@ -105,8 +105,8 @@ public class MainWrapper {
 
 	public static void findTeacher() {
 		Teacher t = TeacherWrapper.findTeacher(teachers);
-		if (t != null)
-			t.printInfo();
+		if (t != TeacherWrapper.findTeacher(teachers))
+			System.out.println(t.getInfo());
 	}
 
 	public static void createTeacher() {
