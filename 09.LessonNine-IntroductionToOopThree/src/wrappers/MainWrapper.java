@@ -49,29 +49,35 @@ public class MainWrapper {
 	}
 
 	public static void displayStudents() {
-		StudentWrapper.displayStudents(students);
+		System.out.println(StudentWrapper.displayStudents(students));
 	}
 
 	public static void findStudent() {
-		Student st = StudentWrapper.findStudent(students);
-		if (st != null)
-			System.out.println(st.getInfo());
+		ObjectDecorator<Student> result = StudentWrapper.findStudent(students);
+		if (result.getObj() != null)
+			System.out.println(result.getObj().getInfo());
+		else
+			System.out.println(result.getOutput());
 	}
 
 	public static void createStudent() {
-		students.add(StudentWrapper.createStudent(students));
+		ObjectDecorator<Student> result = StudentWrapper.createStudent(students);
+		students.add(result.getObj());
+		System.out.println(result.getOutput());
 	}
 
 	public static void updateStudent() {
-		Student st = StudentWrapper.findStudent(students);
-		if (st != null)
-			StudentWrapper.updateStudent(st);
+		ObjectDecorator<Student> result = StudentWrapper.findStudent(students);
+		if (result.getObj() != null)
+			System.out.println(StudentWrapper.updateStudent(result.getObj()));
+		else
+			System.out.println(result.getOutput());
 	}
 
 	public static void deleteStudent() {
-		Student st = StudentWrapper.findStudent(students);
-		if (st != null)
-			StudentWrapper.deleteStudent(students, st);
+		ObjectDecorator<Student> result = StudentWrapper.findStudent(students);
+		if (result.getObj() != null)
+			System.out.println(StudentWrapper.deleteStudent(students, result.getObj()));
 	}
 
 	public static void displaySubjects() {
