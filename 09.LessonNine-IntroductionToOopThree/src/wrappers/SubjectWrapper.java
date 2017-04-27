@@ -6,8 +6,13 @@ import util.ObjectDecorator;
 import util.Utility;
 
 public class SubjectWrapper {
-	public static void displaySubjects(List<Subject> subjects) {
-		subjects.forEach(s -> System.out.println(s.getInfo()));
+	public static String displaySubjects(List<Subject> subjects) {
+		String output = "";
+		for (Subject subject : subjects) {
+			output += subject.getInfo() + "\n";
+		}
+		
+		return output;
 	}
 
 	public static ObjectDecorator<Subject> findSubject(List<Subject> subjects) {

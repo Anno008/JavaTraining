@@ -75,7 +75,7 @@ public class MainWrapper {
 	}
 
 	public static void displaySubjects() {
-		SubjectWrapper.displaySubjects(subjects);
+		System.out.println(SubjectWrapper.displaySubjects(subjects));
 	}
 
 	public static void findSubject() {
