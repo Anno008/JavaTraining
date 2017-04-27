@@ -35,29 +35,20 @@ public class Student extends Person {
 		return output;
 	}
 
+	public void takeExam(Exam exam) {
+		exams.add(exam);
+	}
+	
+	public void invalidateExam(Exam examToInvalidate) {
+			exams.remove(examToInvalidate);
+	}
+	
 	public double getAverage() {
 		double temp = 0;
 		for (Exam exam : exams)
 			temp += exam.getGrade();
 
 		return temp / exams.size();
-	}
-
-	public String takeExam(Exam exam) {
-		String output = "";
-		for (Exam e : exams)
-			if (e.getSubject().getName().equals(exam.getSubject().getName())) {
-				output += "Student: " + getFullName() + " has already taken the exam: " + exam.getSubject().getName() + "\n";
-				return output;
-			}
-
-		exams.add(exam);
-		return output;
-	}
-	
-	public String invalidateExam(Exam examToInvalidate) {
-			exams.remove(examToInvalidate);
-			return "invalidated exam of subject: " + examToInvalidate.getSubject().getName() + " from student: " + getFullName();
 	}
 	
 	public int getId(){

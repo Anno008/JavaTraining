@@ -35,12 +35,12 @@ public class MainWrapper {
 		subjects.add(math);
 
 		Student jack = new Student(1, "Jack", "Sparrow");
-		System.out.println(jack.takeExam(new Exam(1, jack, math, 5)));
+		jack.takeExam(new Exam(1, jack, math, 5));
 		Student jason = new Student(2, "Jason", "Momoa");
 
 		Student emma = new Student(3, "Emma", "Watson");
-		System.out.println(emma.takeExam(new Exam(2, emma, defenseAgainstTheDarkArts, 7)));
-		System.out.println(emma.takeExam(new Exam(3, emma, whichcraft, 10)));
+		emma.takeExam(new Exam(2, emma, defenseAgainstTheDarkArts, 7));
+		emma.takeExam(new Exam(3, emma, whichcraft, 10));
 
 		students.add(jack);
 		students.add(jason);
@@ -126,10 +126,10 @@ public class MainWrapper {
 	}
 
 	public static void takeExam() {
-		ExamWrapper.takeExam(students, subjects);
+		System.out.println(ExamWrapper.takeExam(students, subjects));
 	}
 
 	public static void invalidateExam() {
-		ExamWrapper.invalidateExam(students, subjects);
+		System.out.println(ExamWrapper.invalidateExam(students, subjects));
 	}
 }
