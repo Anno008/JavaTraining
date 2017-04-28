@@ -1,4 +1,4 @@
-package wrappers;
+package main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,10 @@ import java.util.List;
 import models.*;
 import util.ObjectDecorator;
 import util.Utility;
+import wrappers.ExamWrapper;
+import wrappers.StudentWrapper;
+import wrappers.SubjectWrapper;
+import wrappers.TeacherWrapper;
 
 public class MainWrapper {
 	static {
