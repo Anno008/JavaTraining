@@ -92,6 +92,5 @@ public class GenericList<T> {
 			this.data = data;
 			this.next = null;
 		}
-		
 	}
 }
