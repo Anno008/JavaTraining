@@ -5,8 +5,6 @@ public class Stack {
 	private Node head;
 	private int size;
 
-
-
 	public void push(Object obj) {
 		Node newNode = new Node(obj);
 

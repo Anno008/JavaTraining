@@ -1,7 +1,6 @@
 package list;
 
 public class Queue {
-
 	private Node head;
 	private int size;
 
@@ -31,7 +30,6 @@ public class Queue {
 			return null;
 
 		return head.data;
-
 	}
 
 	public int size() {
