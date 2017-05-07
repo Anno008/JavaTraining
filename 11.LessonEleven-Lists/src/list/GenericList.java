@@ -84,6 +84,7 @@ public class GenericList<T> {
 		return temp.data;
 	}
 
+	@SuppressWarnings("hiding")
 	private class Node<T> {
 		public T data;
 		public Node<T> next;
