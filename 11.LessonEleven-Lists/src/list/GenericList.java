@@ -6,14 +6,14 @@ public class GenericList<T> {
 
 	public void add(T obj) {
 		Node<T> newNode = new Node<T>(obj);
-		
+
 		if (head == null)
 			head = newNode;
 		else {
 			Node<T> temp = head;
-			while (temp.next != null) 
+			while (temp.next != null)
 				temp = temp.next;
-			
+
 			temp.next = newNode;
 		}
 		size++;
@@ -21,7 +21,7 @@ public class GenericList<T> {
 
 	public void add(T obj, int index) {
 		Node<T> newNode = new Node<T>(obj);
-		
+
 		if (index == 0) {
 			newNode.next = head;
 			head = newNode;
@@ -51,7 +51,7 @@ public class GenericList<T> {
 	public void remove(T obj) {
 		if (head == null)
 			return;
-		
+
 		if (head.data.equals(obj))
 			head = head.next;
 		else {
@@ -71,7 +71,7 @@ public class GenericList<T> {
 		head = null;
 		size = 0;
 	}
-	
+
 	public int getLength() {
 		return size;
 	}
@@ -80,7 +80,7 @@ public class GenericList<T> {
 		Node<T> temp = head;
 		for (int i = 0; i < index; i++)
 			temp = temp.next;
-		
+
 		return temp.data;
 	}
 

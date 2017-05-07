@@ -66,6 +66,11 @@ public class NonGenericList2 {
 
 		return null;
 	}
+	
+	public void removeAll(){
+		myArray = new Object[10];
+		size = 0;
+	}
 
 	public int size() {
 		return size;
