@@ -48,6 +48,7 @@ public class NonGenericList2 {
 		Object obj = myArray[index];
 		myArray[index] = null;
 		int tmp = index;
+		
 		while (tmp < size) {
 			myArray[tmp] = myArray[tmp + 1];
 			myArray[tmp + 1] = null;

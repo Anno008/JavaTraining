@@ -17,6 +17,14 @@ public class NonGenericLinkedList {
 		size++;
 	}
 	
+	public void addFirst(Object item){
+		Node temp = head;
+		head = new Node(item);
+		head.next = temp;
+	
+		size++;
+	}
+	
 	public Object get(int index) {
 		if(index > size || index < 0)
 			return null;

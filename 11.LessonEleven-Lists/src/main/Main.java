@@ -10,8 +10,11 @@ public class Main {
 		list.add(p);
 		list.add("Mika");
 		list.add("Jhon");
+		list.add("Lubo");
 		
 		list.remove(p);
+		list.addFirst("Wick");
+		list.addFirst("Alex");
 		
 		System.out.println(list.size());
 		System.out.println("First item " + list.getFirst());
@@ -21,7 +24,7 @@ public class Main {
 		for (Object item : list.getAll()) 
 			System.out.println(item);
 		
-		
-		System.out.println(list.get(10));
+		System.out.println();
+		System.out.println("Item at position: 10 " + list.get(10));
 	}
 }
