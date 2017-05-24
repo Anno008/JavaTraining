@@ -1,0 +1,4 @@
+1111,Berlin,3000,1
+1111,Berlin,4000,3
+222,New York,6060,2
+532,San Francisco,2343,2
