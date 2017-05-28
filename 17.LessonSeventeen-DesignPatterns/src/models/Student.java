@@ -50,6 +50,14 @@ public class Student {
 		exams.add(exam);
 	}
 	
+	public void removeExam(Exam exam){
+		exams.remove(exam);
+	}
+	
+	public Student cloneStudent(Student other){
+		return new Student(other.index, other.name, other.surname);
+	}
+	
 	@Override
 	public String toString(){
 		String output = "Index: " + index + ", name: " + name + ", surname: " + surname + (exams.size() > 0 ? ", average grade: " + exams.stream().mapToInt(e -> e.getGrade()).sum() : "");

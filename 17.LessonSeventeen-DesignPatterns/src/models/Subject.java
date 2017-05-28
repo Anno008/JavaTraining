@@ -39,4 +39,8 @@ public class Subject {
 	public String toString() {
 		return "Id: " + id + ", subject: " + name + ", carries: " + espb + " points";
 	}
+
+	public Subject cloneSubject(Subject newSubject) {
+		return new Subject(newSubject.id, newSubject.name, newSubject.espb);
+	}
 }

@@ -2,6 +2,10 @@ package utils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import models.Student;
+import models.Subject;
 
 public class Utility {
 	public static String readString(String message) {
@@ -66,5 +70,25 @@ public class Utility {
 			sb.append(character);
 
 		return new String(sb);
+	}
+
+	public static Student findStudentOnIndex(ArrayList<Student> students) {
+		int index = readInteger("Enter the index of the student.");
+
+		for (Student student : students)
+			if (student.getIndex() == index)
+				return student;
+
+		return null;
+	}
+
+	public static Subject findSubjectOnIndex(ArrayList<Subject> subjects) {
+		int id = readInteger("enter the id of the subject");
+
+		for (Subject subject : subjects)
+			if (subject.getId() == id)
+				return subject;
+
+		return null;
 	}
 }
