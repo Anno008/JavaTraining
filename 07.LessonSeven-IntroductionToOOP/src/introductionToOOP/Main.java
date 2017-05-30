@@ -12,7 +12,6 @@ public class Main {
 		List<Student> students = getStudentsList();
 		
 		Student pera = students.stream().filter(s -> s.Id == 1).findFirst().get();
-		List<Exam> perasExamList = pera.GetPassedExams();
 		pera.PassExam(new Subject(SubjectsEnum.Math), 5);
 		pera.PassExam(new Subject(SubjectsEnum.Physics), 6);
 		
