@@ -19,7 +19,7 @@ public class Main {
 			taskList.add(t);
 		}
 
-		taskList.get(2).join();
+		taskList.get(taskList.size() - 1).join();
 
 		for (Task task : taskList) {
 			sum += task.getSum();
