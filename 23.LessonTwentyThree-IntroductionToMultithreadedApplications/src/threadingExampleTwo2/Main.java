@@ -9,7 +9,6 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException {
 		int[] array = { 2, 5, 4, 11, 45, 23, 85, 43, 26 };
 		int oneThird = array.length / 3;
-
 		int sum = 0;
 		List<Task> taskList = new ArrayList<Task>();
 
