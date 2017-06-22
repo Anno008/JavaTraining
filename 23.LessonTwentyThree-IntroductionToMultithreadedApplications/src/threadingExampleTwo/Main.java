@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import threadingExampleTwo2.Task;
+
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -19,9 +21,8 @@ public class Main {
 			taskList.add(t);
 		}
 
-		taskList.get(taskList.size() - 1).join();
-
 		for (Task task : taskList) {
+			task.join();
 			sum += task.getSum();
 		}
 
