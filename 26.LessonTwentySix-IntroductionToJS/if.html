@@ -1,0 +1,36 @@
+<html>
+
+<head>
+	<script>
+		function checkBodyMassIndex() {
+			var weight = parseFloat(document.getElementById("textBox1").value);
+			var element = document.getElementById("p1");
+
+			var BMI = weight / (1.8 * 2);
+			if (BMI < 18.5) {
+				element.innerHTML = "Malnutrition";
+			}
+			else if (BMI > 18.5 && BMI < 25) {
+				element.innerHTML = "Ideal body weight";
+			}
+			else if (BMI >= 25 && BMI < 30) {
+				element.innerHTML = "Over weight";
+			}
+			else {
+				element.innerHTML = "Obesity";
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<span>Enter your weight</span><input type="text" id="textBox1"></input>
+	<br/>
+	<br/>
+	<input type="button" value="Ispisi" onclick="checkBodyMassIndex()"></input>
+	<br/>
+	<br/>
+	<p id="p1"></p>
+</body>
+
+</html>

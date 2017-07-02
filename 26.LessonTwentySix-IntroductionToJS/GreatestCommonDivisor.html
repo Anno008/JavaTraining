@@ -1,0 +1,23 @@
+<html>
+
+<head>
+</head>
+
+<body>
+	<p id="p1"></p>
+	<script>
+		var a = 15;
+		var b = 25;
+		while (b != 0) {
+			if (b >= a) {
+				b -= a;
+			} else {
+				a -= b;
+			}
+		}
+
+		document.getElementById("p1").innerHTML = a;
+	</script>
+</body>
+
+</html>

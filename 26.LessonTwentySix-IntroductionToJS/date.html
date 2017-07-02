@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script>
+		function checkDate() {
+			var date = document.getElementById("textBox1").value;
+			var valid = false;
+
+			var delovi = date.split("/");
+			var day = parseInt(delovi[0]);
+			var month = parseInt(delovi[1]);
+			var year = parseInt(delovi[2]);
+
+			switch (month) {
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					if (day > 0 && day <= 31) {
+						valid = true;
+					}
+					break;
+				case 2:
+					if ((year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
+						if (day > 0 && day <= 29) {
+							valid = true;
+						}
+					}
+					else {
+						valid = false;
+					}
+					break;
+				default:
+					if (day > 0 && day <= 30) {
+						valid = true;
+					}
+					break;
+			}
+
+			document.getElementById("p1").innerHTML = valid ? "valid datum" : "invalid date";
+		}
+	</script>
+</head>
+
+<body>
+	<span>Enter the date</span><input type="text" id="textBox1" placeholder="Format: dd/MM/yyyy"></input>
+	<br/>
+	<input type="button" value="Check Date" onclick="checkDate()"></input>
+	<br/>
+	<p id="p1"></p>
+</body>
+
+</html>

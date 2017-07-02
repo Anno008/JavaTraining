@@ -1,0 +1,30 @@
+<html>
+
+<head>
+	<script>
+		function check() {
+			var number = parseInt(document.getElementById("textBox1").value);
+
+			var output = ""
+			for (var i = 2; i < number; i++) {
+				if (number % i == 0) {
+					output += i + "<br/>"
+				}
+			}
+
+			document.getElementById("p1").innerHTML = output;
+		}
+	</script>
+</head>
+
+<body>
+	<span>Enter a number</span><input type="text" id="textBox1"></input>
+	<br/>
+	<br/>
+	<input type="button" value="Check" onclick="check()"></input>
+	<br/>
+	<br/>
+	<p id="p1"></p>
+</body>
+
+</html>

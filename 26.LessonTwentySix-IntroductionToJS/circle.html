@@ -1,0 +1,26 @@
+<html>
+
+<head>
+	<script>
+		function calculate() {
+			var radius = parseInt(document.getElementById("textBox1").value);
+
+			var volume = 2 * radius * 3.14;
+			var surface = radius * radius * 3.14;
+			var output = "Volume: " + volume + "<br/>Surface: " + surface;
+			document.getElementById("p1").innerHTML = output;
+		}
+	</script>
+</head>
+
+<body>
+	<span>Enter the circles radius</span><input type="text" id="textBox1"></input>
+	<br/>
+	<br/>
+	<input type="button" value="Calculate" onclick="calculate()"></input>
+	<br/>
+	<br/>
+	<p id="p1"></p>
+</body>
+
+</html>

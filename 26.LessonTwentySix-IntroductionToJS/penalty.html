@@ -1,0 +1,33 @@
+<html>
+
+<head>
+	<script>
+		function calculate() {
+			var speed = parseInt(document.getElementById("textBoxSpeed").value);
+			var allowedSpeed = 60;
+
+			var penaltyTicket = 5000;
+			if (speed > allowedSpeed) {
+				for (var i = allowedSpeed; i < speed; i++) {
+					penaltyTicket += 500;
+				}
+			}
+			else if (speed > 120) {
+				penaltyTicket += 10000;
+			}
+
+			document.getElementById("p1").innerHTML = speed > allowedSpeed ? "Money to pay: " + penaltyTicket : "Everything is ok";
+		}
+	</script>
+</head>
+
+<body>
+	<span>Enter the speed of the vehicle</span><input type="text" id="textBoxSpeed"></input><span>Kmh</span>
+	<br/>
+	<br/>
+	<input type="button" value="Check for penalty" onclick="calculate()"></input>
+	<br/>
+	<p id="p1"></p>
+</body>
+
+</html>
