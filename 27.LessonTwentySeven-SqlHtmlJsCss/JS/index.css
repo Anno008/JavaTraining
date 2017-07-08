@@ -1,0 +1,42 @@
+body{
+    background-color:lavender;
+}
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+}
+table thead{
+    background-color: pink;
+    border: 1px solid black;
+}
+table thead tr td{
+    width:150px;
+}
+
+table tbody tr td{
+    max-width:100px;
+    overflow: hidden;
+}
+
+table tbody tr:nth-child(even){
+    background-color:lightblue;
+}
+
+table tbody tr:hover{
+    background-color:red;
+}
+
+.textInfo{
+    display: inline-block;
+    width:200px;
+}
+
+input[type="text"]{
+    border: 1px solid black;
+}
+
+input[type="text"]:focus{
+    border: 1px solid red;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="students.js"></script>
+    <link href="index.css" rel="stylesheet"></link>
+</head>
+
+<body onload="displayStudents()">
+    <table id="studentsTable"></table>
+    <br/>
+    <hr/>
+    <p>
+        <span class="textInfo">Enter the students name: </span>
+        <input id="nameTxt" type="text"/>
+    </p>
+     <p>
+        <span class="textInfo">Enter the students surname: </span>
+        <input id="surnameTxt" type="text"/>
+    </p>
+    <br/>
+    <input type="button" onClick="createStudent()" value="Create student"/>
+    <br/>
+    <p id="info"></p>
+    <hr/>
+    <div id="studentInfo"></div>
+</body>
+
+</html>
