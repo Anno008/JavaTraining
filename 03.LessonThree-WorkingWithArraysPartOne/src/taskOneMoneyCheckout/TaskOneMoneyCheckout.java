@@ -9,7 +9,6 @@ public class TaskOneMoneyCheckout {
 
 		for (int i = 0; i < availableMoneyAmount.length; i++) {
 			int count = 0;
-			for (int j = 0; j < availableMoneyAmount[i].length; j++) {
 				while (availableMoneyAmount[i][1] > 0) { 
 					if (amountToCheckout <= 0 || amountToCheckout < availableMoneyAmount[i][0])
 						break;
@@ -17,7 +16,6 @@ public class TaskOneMoneyCheckout {
 					availableMoneyAmount[i][1] -= 1;
 					count++;
 				}
-			}
 			output += "Checked out " + count + " bills with the value of: " + availableMoneyAmount[i][0] + "\n";
 		}
 		
