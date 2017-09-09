@@ -1,3 +1,9 @@
 1: Query all students:
 
 //students/student
+
+
+2: Query all exams belonging to a student with the id of 2
+
+//exams/exam[student-id=2]
+
