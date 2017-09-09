@@ -10,3 +10,7 @@
 3: Query for average grade for student with the id of 2
 
 avg(//exams/exam[student-id=2]/grade)
+
+4: Query all students that got a higher grade than 7 on subject Math
+
+//student[@id=(//exam[grade > 7 and subject-id=(//subject[name="Math"]/@id)]/student-id)]
