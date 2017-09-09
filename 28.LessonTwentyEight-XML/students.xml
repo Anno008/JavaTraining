@@ -43,6 +43,16 @@
             <subject-id>1</subject-id>
             <grade>10</grade>
         </exam>
+        <exam>
+            <student-id>2</student-id>
+            <subject-id>1</subject-id>
+            <grade>6</grade>
+        </exam>
+        <exam>
+            <student-id>2</student-id>
+            <subject-id>1</subject-id>
+            <grade>8</grade>
+        </exam>
          <exam>
             <student-id>1</student-id>
             <subject-id>2</subject-id>
