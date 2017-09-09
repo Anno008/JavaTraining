@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<school>
+    <students>
+        <student id="1">
+            <name>Lyanna</name>
+            <surname>Mormont</surname>
+            <index>111</index>
+        </student>
+        <student id="2">
+            <name>Bob</name>
+            <surname>Smith</surname>
+            <index>123</index>
+        </student>
+        <student id="3">
+            <name>Harris</name>
+            <surname>Tailor</surname>
+            <index>234</index>
+        </student>
+    </students>
+
+    <subjects>
+        <subject id="1">
+            <name>Math</name>
+            <espb>7</espb>
+        </subject>
+        <subject id="2">
+            <name>Algorithm</name>
+            <espb>8</espb>
+        </subject>
+        <subject id="3">
+            <name>Art</name>
+            <espb>6</espb>
+        </subject>
+        <subject id="4">
+            <name>Design</name>
+            <espb>9</espb>
+        </subject>
+    </subjects>
+
+    <exams>
+        <exam>
+            <student-id>1</student-id>
+            <subject-id>1</subject-id>
+            <grade>10</grade>
+        </exam>
+         <exam>
+            <student-id>1</student-id>
+            <subject-id>2</subject-id>
+            <grade>7</grade>
+        </exam>
+
+         <exam>
+            <student-id>2</student-id>
+            <subject-id>3</subject-id>
+            <grade>6</grade>
+        </exam>
+         <exam>
+            <student-id>2</student-id>
+            <subject-id>4</subject-id>
+            <grade>9</grade>
+        </exam>
+
+         <exam>
+            <student-id>3</student-id>
+            <subject-id>4</subject-id>
+            <grade>10</grade>
+        </exam>
+    </exams>
+</school>
