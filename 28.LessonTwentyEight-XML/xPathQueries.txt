@@ -7,3 +7,6 @@
 
 //exams/exam[student-id=2]
 
+3: Query for average grade for student with the id of 2
+
+avg(//exams/exam[student-id=2]/grade)
