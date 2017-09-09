@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="school">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="students" />
+				<xs:element ref="subjects" />
+				<xs:element ref="exams" />
+			</xs:sequence>
+		</xs:complexType>		
+	</xs:element>
+
+	<xs:element name="students">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="student"/>
+			</xs:sequence>
+		</xs:complexType>		
+	</xs:element>
+
+	<xs:element name="subjects">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="subject"/>
+			</xs:sequence>
+		</xs:complexType>		
+	</xs:element>
+
+	<xs:element name="exams">
+		<xs:complexType>
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="exam"/>
+			</xs:sequence>
+		</xs:complexType>		
+	</xs:element>
+
+	<xs:element name="student">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string"/>
+				<xs:element name="surname" type="xs:string" />
+				<xs:element name="index" type="xs:string"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="subject">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string"/>
+				<xs:element name="espb" type="xs:integer" />
+			</xs:sequence>
+		<xs:attribute name="id" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="exam">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="student-id" type="xs:integer"/>
+				<xs:element name="subject-id" type="xs:integer" />
+				<xs:element name="grade" type="xs:integer" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
