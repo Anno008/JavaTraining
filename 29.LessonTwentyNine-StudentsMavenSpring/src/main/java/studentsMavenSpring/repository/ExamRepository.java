@@ -16,7 +16,7 @@ import studentsMavenSpring.model.Exam;
 @Component("examRepository")
 public class ExamRepository {
 	private List<Exam> exams = new ArrayList<Exam>();
-	private String path = "src/main/java/ExamsMavenSpring/exams.txt";
+	private String path = "src/main/java/studentsMavenSpring/exams.txt";
 
 	public List<Exam> findAll() {
 		try {

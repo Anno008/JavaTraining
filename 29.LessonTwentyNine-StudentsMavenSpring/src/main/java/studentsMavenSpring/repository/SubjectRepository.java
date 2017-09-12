@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -17,7 +16,16 @@ import studentsMavenSpring.model.Subject;
 @Component("subjectRepository")
 public class SubjectRepository {
 	private List<Subject> subjects = new ArrayList<Subject>();
-	private String path = "src/main/java/SubjectsMavenSpring/subjects.txt";
+	private String path = "src/main/java/studentsMavenSpring/subjects.txt";
+	
+	public SubjectRepository() {
+		try {
+			subjects = new ArrayList<Subject>(readSubjects());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public List<Subject> findAll() {
 		try {
@@ -55,11 +63,9 @@ public class SubjectRepository {
 	}
 
 	public void delete(int id) {
-		Iterator<Subject> subjectsIterator = subjects.iterator();
-		while (subjectsIterator.hasNext()) {
-			if (subjectsIterator.next().getId() == id) {
-				subjectsIterator.remove();
-				return;
+		for (int i = 0; i < subjects.size(); i++) {
+			if(subjects.get(i).getId() == id) {
+				subjects.remove(i);
 			}
 		}
 		try {

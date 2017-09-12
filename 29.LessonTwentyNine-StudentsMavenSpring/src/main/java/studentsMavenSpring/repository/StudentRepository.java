@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -21,7 +20,7 @@ public class StudentRepository {
 	
 	public StudentRepository() {
 		try {
-			students = new ArrayList(readStudents());
+			students = new ArrayList<Student>(readStudents());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
