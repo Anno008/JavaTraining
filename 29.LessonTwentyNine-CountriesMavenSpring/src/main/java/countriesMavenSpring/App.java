@@ -9,6 +9,7 @@ import countriesMavenSpring.view.CountryView;
 
 public class App {
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		CountryView view = context.getBean(CountryView.class);
