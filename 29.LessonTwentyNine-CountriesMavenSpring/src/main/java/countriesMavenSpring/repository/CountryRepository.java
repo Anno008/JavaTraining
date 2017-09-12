@@ -43,9 +43,10 @@ public class CountryRepository {
 	public void delete(int id) {
 		Iterator<Country> countriesIterator = countries.iterator();
 		while (countriesIterator.hasNext()) {
-			if (countriesIterator.next().getId() == id)
+			if (countriesIterator.next().getId() == id) {
 				countriesIterator.remove();
-			return;
+				return;
+			}
 		}
 	}
 }
