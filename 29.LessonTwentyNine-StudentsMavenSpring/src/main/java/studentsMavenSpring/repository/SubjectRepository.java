@@ -78,7 +78,7 @@ public class SubjectRepository {
 		return st.getId() + "," + st.getName() + "," + st.getEspb();
 	}
 
-	public List<Subject> readSubjects() throws IOException {
+	private List<Subject> readSubjects() throws IOException {
 		BufferedReader inputStream = null;
 		List<Subject> subjects = null;
 		File yourFile = new File(path);
@@ -98,7 +98,7 @@ public class SubjectRepository {
 		}
 	}
 
-	public void saveSubjects(List<Subject> subjects) throws IOException {
+	private void saveSubjects(List<Subject> subjects) throws IOException {
 		PrintWriter outputStream = null;
 		try {
 			outputStream = new PrintWriter(new FileWriter(path));
