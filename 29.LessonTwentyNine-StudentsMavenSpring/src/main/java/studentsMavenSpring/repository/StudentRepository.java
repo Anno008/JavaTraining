@@ -16,8 +16,17 @@ import studentsMavenSpring.model.Student;
 
 @Component("studentRepository")
 public class StudentRepository {
-	private List<Student> students = new ArrayList<Student>();
+	private List<Student> students;
 	private String path = "src/main/java/studentsMavenSpring/students.txt";
+	
+	public StudentRepository() {
+		try {
+			students = new ArrayList(readStudents());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public List<Student> findAll() {
 		try {
@@ -55,11 +64,9 @@ public class StudentRepository {
 	}
 
 	public void delete(int id) {
-		Iterator<Student> studentsIterator = students.iterator();
-		while (studentsIterator.hasNext()) {
-			if (studentsIterator.next().getId() == id) {
-				studentsIterator.remove();
-				return;
+		for (int i = 0; i < students.size(); i++) {
+			if(students.get(i).getId() == id) {
+				students.remove(i);
 			}
 		}
 		try {
