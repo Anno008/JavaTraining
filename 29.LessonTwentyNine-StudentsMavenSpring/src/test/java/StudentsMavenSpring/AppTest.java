@@ -1,4 +1,4 @@
-package StudentsMavenSpring.LessonTwentyNine_StudentsMavenSpring;
+package StudentsMavenSpring;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

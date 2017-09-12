@@ -1,4 +1,4 @@
-package StudentsMavenSpring.LessonTwentyNine_StudentsMavenSpring;
+package StudentsMavenSpring;
 
 /**
  * Hello world!
