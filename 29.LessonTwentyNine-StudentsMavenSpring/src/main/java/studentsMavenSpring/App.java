@@ -1,4 +1,4 @@
-package StudentsMavenSpring;
+package studentsMavenSpring;
 
 /**
  * Hello world!
