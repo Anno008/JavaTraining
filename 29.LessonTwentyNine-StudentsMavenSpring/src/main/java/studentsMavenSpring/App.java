@@ -8,7 +8,7 @@ import studentsMavenSpring.view.MainView;
 
 public class App {	
 	public static void main(String[] args) {
-		@SuppressWarnings({ "unused", "resource" })
+		@SuppressWarnings({ "resource" })
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		MainView mainView = context.getBean(MainView.class);
