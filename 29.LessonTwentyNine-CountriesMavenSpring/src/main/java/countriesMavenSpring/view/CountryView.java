@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import countriesMavenSpring.model.Country;
+import countriesMavenSpring.service.AuthorizationService;
 import countriesMavenSpring.service.CountryService;
 import countriesMavenSpring.utility.Utility;
 
@@ -11,9 +12,20 @@ import countriesMavenSpring.utility.Utility;
 public class CountryView {
 
 	@Autowired
+	private AuthorizationService authorizationService;
+
+	@Autowired
 	private CountryService countryService;
 
 	public void start() {
+		if (login())
+			System.out
+					.println("Successfully logged in, welcome: " + authorizationService.getLoggedUser().getUserName());
+		else {
+			System.out.println("Failed logging attempt.");
+			return;
+		}
+
 		int option = 0;
 
 		do {
@@ -38,6 +50,13 @@ public class CountryView {
 				break;
 			}
 		} while (option != 6);
+	}
+
+	private boolean login() {
+		String userName = Utility.readString("Enter your user name:");
+		String password = Utility.readString("Enter your password");
+
+		return authorizationService.login(userName, password);
 	}
 
 	private void removeCountry() {

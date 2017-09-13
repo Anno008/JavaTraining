@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import countriesMavenSpring.aspect.IAuthorizationEvent;
 import countriesMavenSpring.model.Country;
 import countriesMavenSpring.repository.CountryRepository;
 
@@ -26,6 +27,7 @@ public class CountryService {
 		countryRepository.save(country);
 	}
 
+	@IAuthorizationEvent
 	public void delete(int id) {
 		countryRepository.delete(id);
 	}
