@@ -24,7 +24,7 @@ public class ExamView {
 	private ExamService examService;
 
 	public void start() {
-		// TODO Auto-generated method stub
+		displayMenu();
 		int option = Utility.readInteger("Enter the desired option:");
 		switch (option) {
 		case 1:
