@@ -16,4 +16,8 @@ public class ExamService {
 	public List<Exam> findAll(){
 		return examRepository.findAll();
 	}
+	
+	public void save(Exam exam) {
+		examRepository.save(exam);
+	}
 }
