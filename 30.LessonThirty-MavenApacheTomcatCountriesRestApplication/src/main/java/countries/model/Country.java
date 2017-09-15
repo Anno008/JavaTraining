@@ -5,6 +5,10 @@ public class Country {
 	private String name;
 	private int population;
 
+	public Country() {
+
+	}
+
 	public Country(int id, String name, int population) {
 		this.id = id;
 		this.name = name;
