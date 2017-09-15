@@ -2,6 +2,7 @@ package countries.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import countries.model.City;
@@ -9,6 +10,7 @@ import countries.repository.CityRepository;
 
 @Component
 public class CityService {
+	@Autowired
 	private CityRepository cityRepository;
 
 	public List<City> getAll() {

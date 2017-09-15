@@ -2,6 +2,7 @@ package countries.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import countries.model.Country;
@@ -9,6 +10,7 @@ import countries.repository.CountryRepository;
 
 @Component
 public class CountryService {
+	@Autowired
 	private CountryRepository countryRepository;
 
 	public List<Country> getAll() {
