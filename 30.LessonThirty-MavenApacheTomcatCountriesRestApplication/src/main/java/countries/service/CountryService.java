@@ -1,4 +1,4 @@
-package countries.controller;
+package countries.service;
 
 import java.util.List;
 
