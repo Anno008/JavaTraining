@@ -1,14 +1,14 @@
 package restWebService.model;
 
-public class Country {
+public class City {
 	private int id;
 	private String name;
-	private int population;
+	private Country country;
 
-	public Country(int id, String name, int population) {
+	public City(int id, String name, Country country) {
 		this.id = id;
 		this.name = name;
-		this.population = population;
+		this.country = country;
 	}
 
 	public int getId() {
@@ -27,16 +27,16 @@ public class Country {
 		this.name = name;
 	}
 
-	public int getPopulation() {
-		return population;
+	public Country getCountry() {
+		return country;
 	}
 
-	public void setPopulation(int population) {
-		this.population = population;
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 
 	@Override
 	public String toString() {
-		return "Country id=" + id + ", name=" + name + ", population=" + population;
+		return "City id=" + id + ", name=" + name + ", country=" + country.getName();
 	}
 }
