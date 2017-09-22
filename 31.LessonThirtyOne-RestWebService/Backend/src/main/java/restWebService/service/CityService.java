@@ -25,8 +25,8 @@ public class CityService {
 		return cityRepository.getByCountry(id);
 	}
 
-	public void save(City city) {
-		cityRepository.save(city);
+	public City save(City city) {
+		return cityRepository.save(city);
 	}
 
 	public void delete(int id) {
