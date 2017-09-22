@@ -41,15 +41,15 @@ public class CityRepository {
 		return cities.stream().filter(c -> c.getCountry().getId() == id).collect(Collectors.toList());
 	}
 
-	public City save(City City) {
-		City existingCity = get(City.getId());
+	public City save(City city) {
+		City existingCity = get(city.getId());
 		if (existingCity == null) {
-			City.setId(Collections.max(cities, Comparator.comparing(c -> c.getId())).getId() + 1);
-			cities.add(City);
+			city.setId(Collections.max(cities, Comparator.comparing(c -> c.getId())).getId() + 1);
+			cities.add(city);
 		} else
-			existingCity.setName(City.getName());
+			existingCity.setName(city.getName());
 
-		return City;
+		return city;
 	}
 
 	public void delete(int id) {
