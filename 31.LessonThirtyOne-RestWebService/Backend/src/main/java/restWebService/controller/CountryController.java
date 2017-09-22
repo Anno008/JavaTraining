@@ -21,22 +21,36 @@ public class CountryController {
 	CountryService countryService;
 
 	@RequestMapping(value = "api/countries", method = RequestMethod.GET)
-	public ResponseEntity<List<Country>> getAllCountries() {
+	public ResponseEntity<List<Country>> get() {
 		return new ResponseEntity<>(countryService.getAll(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "api/countries", method = RequestMethod.GET, params = "name")
+	public ResponseEntity<List<Country>> get(@RequestParam String name) {
+		List<Country> countries = countryService.findByName(name);
+
+		return new ResponseEntity<>(countries, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "api/countries", method = RequestMethod.GET, params = "population")
+	public ResponseEntity<List<Country>> get(@RequestParam int population,
+			@RequestParam boolean higherThan) {
+		return new ResponseEntity<>(higherThan ? countryService.getAllWithPopulationHigher(population)
+				: countryService.getAllWithPopulationLower(population), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "api/countries/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Country> getCountry(@PathVariable int id) {
+	public ResponseEntity<Country> get(@PathVariable int id) {
 		return new ResponseEntity<>(countryService.get(id), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "api/countries", method = RequestMethod.POST)
-	public ResponseEntity<Country> create(@RequestBody Country country) {
+	public ResponseEntity<Country> post(@RequestBody Country country) {
 		return new ResponseEntity<>(countryService.save(country), HttpStatus.CREATED);
 	}
 
 	@RequestMapping(value = "api/countries/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Country> update(@PathVariable int id, @RequestBody Country country) {
+	public ResponseEntity<Country> put(@PathVariable int id, @RequestBody Country country) {
 		return new ResponseEntity<>(countryService.save(country), HttpStatus.OK);
 	}
 
@@ -47,19 +61,5 @@ public class CountryController {
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	}
-
-	@RequestMapping(value = "api/countries", method = RequestMethod.GET, params = "name")
-	public ResponseEntity<List<Country>> getCountriesByName(@RequestParam String name) {
-		List<Country> countries = countryService.findByName(name);
-
-		return new ResponseEntity<>(countries, HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "api/countries", method = RequestMethod.GET, params = "population")
-	public ResponseEntity<List<Country>> getCountriesByPopulation(@RequestParam int population,
-			@RequestParam boolean higherThan) {
-		return new ResponseEntity<>(higherThan ? countryService.getAllWithPopulationHigher(population)
-				: countryService.getAllWithPopulationLower(population), HttpStatus.OK);
 	}
 }
