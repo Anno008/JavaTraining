@@ -36,6 +36,10 @@ public class CityRepository {
 	public City get(int id) {
 		return cities.stream().filter(c -> c.getId() == id).findFirst().get();
 	}
+	
+	public List<City> getByCountry(int id){
+		return cities.stream().filter(c -> c.getCountry().getId() == id).collect(Collectors.toList());
+	}
 
 	public City save(City City) {
 		City existingCity = get(City.getId());
