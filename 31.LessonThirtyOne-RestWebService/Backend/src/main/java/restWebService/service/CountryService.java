@@ -29,8 +29,8 @@ public class CountryService {
 		return countryRepository.getAllWithPopulationLower(population);
 	}
 
-	public void save(Country country) {
-		countryRepository.save(country);
+	public Country save(Country country) {
+		return countryRepository.save(country);
 	}
 
 	public void delete(int id) {
