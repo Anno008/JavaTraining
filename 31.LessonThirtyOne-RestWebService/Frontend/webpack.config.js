@@ -41,11 +41,19 @@ module.exports = {
                     {
                         loader: "babel-loader",
                         options: {
-                            "presets": ["es2016", "react"]
+                            "presets": ["es2016", "stage-0", "react"]
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.css$/,
+                loader: "style-loader"
+            },
+            {
+                test: /\.css$/,
+                loader: "css-loader"
+            },
         ]
     }
-}
+};
