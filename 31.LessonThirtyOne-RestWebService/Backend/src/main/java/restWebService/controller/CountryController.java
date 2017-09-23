@@ -16,45 +16,46 @@ import restWebService.model.Country;
 import restWebService.service.CountryService;
 
 @RestController
+@RequestMapping(value = "api/countries")
 public class CountryController {
 	@Autowired
 	CountryService countryService;
 
-	@RequestMapping(value = "api/countries", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Country>> get() {
 		return new ResponseEntity<>(countryService.getAll(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "api/countries", method = RequestMethod.GET, params = "name")
+	@RequestMapping(method = RequestMethod.GET, params = "name")
 	public ResponseEntity<List<Country>> get(@RequestParam String name) {
 		List<Country> countries = countryService.findByName(name);
 
 		return new ResponseEntity<>(countries, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "api/countries", method = RequestMethod.GET, params = "population")
+	@RequestMapping(method = RequestMethod.GET, params = "population")
 	public ResponseEntity<List<Country>> get(@RequestParam int population,
 			@RequestParam boolean higherThan) {
 		return new ResponseEntity<>(higherThan ? countryService.getAllWithPopulationHigher(population)
 				: countryService.getAllWithPopulationLower(population), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "api/countries/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Country> get(@PathVariable int id) {
 		return new ResponseEntity<>(countryService.get(id), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "api/countries", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Country> post(@RequestBody Country country) {
 		return new ResponseEntity<>(countryService.save(country), HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "api/countries/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Country> put(@PathVariable int id, @RequestBody Country country) {
 		return new ResponseEntity<>(countryService.save(country), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "api/countries/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable int id) {
 		if (countryService.get(id) != null) {
 			countryService.delete(id);

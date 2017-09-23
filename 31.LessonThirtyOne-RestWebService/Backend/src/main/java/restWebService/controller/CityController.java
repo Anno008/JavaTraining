@@ -24,7 +24,6 @@ public class CityController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<City>> get() {
-		Country c = cityService.get(1).getCountry();
 		return new ResponseEntity<>(cityService.getAll(), HttpStatus.OK);
 	}
 
