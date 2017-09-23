@@ -13,41 +13,44 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import restWebService.model.City;
+import restWebService.model.Country;
 import restWebService.service.CityService;
 
 @RestController
+@RequestMapping(value = "api/cities")
 public class CityController {
 	@Autowired
 	CityService cityService;
 
-	@RequestMapping(value = "api/cities", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<City>> get() {
+		Country c = cityService.get(1).getCountry();
 		return new ResponseEntity<>(cityService.getAll(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "api/cities/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<City> get(@PathVariable int id) {
 		return new ResponseEntity<>(cityService.get(id), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "api/cities", method = RequestMethod.GET, params = "name")
+	@RequestMapping(method = RequestMethod.GET, params = "name")
 	public ResponseEntity<List<City>> getByName(@RequestParam String name) {
 		List<City> countries = cityService.findByName(name);
 
 		return new ResponseEntity<>(countries, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "api/cities", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<City> post(@RequestBody City city) {
 		return new ResponseEntity<City>(cityService.save(city), HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "api/cities/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> put(@PathVariable int id, @RequestBody City city) {
 		return new ResponseEntity<>(cityService.save(city), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "api/cities/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable int id) {
 		if (cityService.get(id) != null) {
 			cityService.delete(id);
