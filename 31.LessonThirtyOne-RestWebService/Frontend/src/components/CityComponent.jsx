@@ -22,10 +22,15 @@ const CityComponent = (props) => {
                 <footer className="card-footer">
                     <a href="#" className="card-footer-item">Save</a>
                     <a href="#" className="card-footer-item">Edit</a>
-                    <a href="#" className="card-footer-item" onClick={() => store.dispatch(deleteCityAction(props.city.id))}>Delete</a>
+                    <a href="#" className="card-footer-item" onClick={() => {
+                        const res = confirm(`Are you sure you want to delete the city: ${props.city.name}?`);
+                        if (res) {
+                            store.dispatch(deleteCityAction(props.city.id));
+                        }
+                    }}>Delete</a>
                 </footer>
             </div>
-        </div>
+        </div >
     );
 };
 
