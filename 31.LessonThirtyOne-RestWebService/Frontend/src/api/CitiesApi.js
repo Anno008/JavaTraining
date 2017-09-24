@@ -15,7 +15,7 @@ export const get = (cityId) => {
 
 export const getByName = (name) => {
     return Api.apiCall({
-            url: `${apiUrl}/cities/${name}`
+            url: `${apiUrl}/cities?name=${name}`
         });
 };
 
