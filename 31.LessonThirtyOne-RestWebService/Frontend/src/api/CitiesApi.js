@@ -7,10 +7,8 @@ export const getAll = () => {
         });
 };
 
-export const get = (countryId) => {
-    return Api.apiCall(
-        {
-            url: `${apiUrl}/countries/${countryId}`
-        }
-    );
+export const get = (cityId) => {
+    return Api.apiCall({
+            url: `${apiUrl}/cities/${cityId}`
+        });
 };
