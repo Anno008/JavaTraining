@@ -3,5 +3,6 @@ export const apiCall = async (config) => {
         body: config.body,
         method: config.method || "GET",
         headers: new Headers(config.headers),
-    }).then(response => response.json().catch(error => { throw error; }));
+    }).then(response => config.method == "DELETE" ? response : response.json())
+        .catch(error => { throw error; });
 };
