@@ -13,4 +13,17 @@
 body {
     background-color: beige;
     overflow: auto;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.links {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.links a {
+    margin: 5px;
 }
