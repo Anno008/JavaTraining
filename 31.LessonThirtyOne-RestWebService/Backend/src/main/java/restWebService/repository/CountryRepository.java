@@ -1,6 +1,6 @@
 package restWebService.repository;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -12,13 +12,12 @@ import restWebService.model.Country;
 
 @Component("countryRepository")
 public class CountryRepository {
-	private List<Country> countries;
+	private List<Country> countries = new ArrayList<Country>();
 
 	public CountryRepository() {
-		countries = Arrays.asList(
-				new Country(1, "Serbia", 7000000), 
-				new Country(2, "Netherlands", 17000000),
-				new Country(3, "Austria", 8700000));
+		countries.add(new Country(1, "Serbia", 7000000));
+		countries.add(new Country(2, "Netherlands", 17000000));
+		countries.add(new Country(3, "Austria", 8700000));
 	}
 
 	public List<Country> getAll() {
@@ -45,7 +44,8 @@ public class CountryRepository {
 	}
 
 	public List<Country> findByName(String name) {
-		return countries.stream().filter(c -> c.getName().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
+		return countries.stream().filter(c -> c.getName().toLowerCase().contains(name.toLowerCase()))
+				.collect(Collectors.toList());
 	}
 
 	public List<Country> getAllWithPopulationHigher(int population) {
