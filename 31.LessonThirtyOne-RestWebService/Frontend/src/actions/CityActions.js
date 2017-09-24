@@ -1,4 +1,4 @@
-import { getAll, get } from "../Api/CitiesApi";
+import { getAll, get, getByName } from "../Api/CitiesApi";
 import * as action from "../constants";
 
 const getData = () => ({ type: action.FETCHING_CITIES, isFetching: true });
@@ -9,6 +9,15 @@ export const fetchCities = () => {
     return (dispatch) => {
         dispatch(getData());
         return getAll()
+            .then(result => dispatch(getDataSuccess(result)))
+            .catch(_ => dispatch(getDataFailure()));
+    };
+};
+
+export const fetchCitiesByName = (name) => {
+    return (dispatch) => {
+        dispatch(getData());
+        return getByName(name)
             .then(result => dispatch(getDataSuccess(result)))
             .catch(_ => dispatch(getDataFailure()));
     };
