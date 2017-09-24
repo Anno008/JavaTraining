@@ -11,12 +11,19 @@
 }
 
 body {
-    background-color: beige;
+    /* background-color: beige; */
     overflow: auto;
     height: 100%;
     margin: 0;
     width: 100%;
     position: absolute;
+    background: -moz-linear-gradient(89deg, rgba(63,101,107,1) 0%, rgba(63,101,107,1) 1%, rgba(138,188,209,1) 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(138,188,209,1)), color-stop(99%, rgba(63,101,107,1)), color-stop(100%, rgba(63,101,107,1))); 
+    background: -webkit-linear-gradient(89deg, rgba(63,101,107,1) 0%, rgba(63,101,107,1) 1%, rgba(138,188,209,1) 100%);
+    background: -o-linear-gradient(89deg, rgba(63,101,107,1) 0%, rgba(63,101,107,1) 1%, rgba(138,188,209,1) 100%); 
+    background: -ms-linear-gradient(89deg, rgba(63,101,107,1) 0%, rgba(63,101,107,1) 1%, rgba(138,188,209,1) 100%); 
+    background: linear-gradient(1deg, rgba(63,101,107,1) 0%, rgba(63,101,107,1) 1%, rgba(138,188,209,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ABCD1', endColorstr='#3F656B',GradientType=0 ); 
 }
 
 .links {
@@ -25,5 +32,12 @@ body {
 }
 
 .links a {
+    font-size: 20px;
+    font-weight: bold;
+    color: navy;
     margin: 5px;
+}
+
+.links a:hover {
+    text-shadow: 1px 1px 3px navajowhite;
 }
