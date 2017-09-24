@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import restWebService.model.City;
-import restWebService.model.Country;
 import restWebService.service.CityService;
 
 @RestController
