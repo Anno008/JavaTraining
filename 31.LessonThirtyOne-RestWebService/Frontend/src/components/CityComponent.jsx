@@ -1,6 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
 import "bulma/css/bulma.css";
+import { store } from "../store/store";
+import { deleteCityAction } from "../actions/CityActions";
 
 const CityComponent = (props) => {
     return (
@@ -21,7 +22,7 @@ const CityComponent = (props) => {
                 <footer className="card-footer">
                     <a href="#" className="card-footer-item">Save</a>
                     <a href="#" className="card-footer-item">Edit</a>
-                    <a href="#" className="card-footer-item">Delete</a>
+                    <a href="#" className="card-footer-item" onClick={() => store.dispatch(deleteCityAction(props.city.id))}>Delete</a>
                 </footer>
             </div>
         </div>
