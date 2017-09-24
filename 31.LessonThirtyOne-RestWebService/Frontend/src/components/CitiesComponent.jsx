@@ -8,8 +8,8 @@ const CitiesComponent = (props) => {
     return (
         <div className="container">
             {props.citiesState.data ? props.citiesState.data.map(c =>
-                <div className="column is-half float">
-                        <CityComponent city={c} key={c.id} />
+                <div className="column is-half float" key={c.id}>
+                    <CityComponent city={c} />
                 </div>
             ) : ""}
         </div>
