@@ -1,4 +1,4 @@
-import { getAll, get, getByName } from "../Api/CitiesApi";
+import { getAll, get, getByName, deleteCity } from "../Api/CitiesApi";
 import * as action from "../constants";
 
 const getData = () => ({ type: action.FETCHING_CITIES, isFetching: true });
@@ -20,5 +20,12 @@ export const fetchCitiesByName = (name) => {
         return getByName(name)
             .then(result => dispatch(getDataSuccess(result)))
             .catch(_ => dispatch(getDataFailure()));
+    };
+};
+
+export const deleteCityAction = (id) => {
+    return (dispatch) => {
+        deleteCity(id)
+        .then(() => dispatch(fetchCities()));
     };
 };
