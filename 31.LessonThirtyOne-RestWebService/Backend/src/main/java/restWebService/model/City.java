@@ -5,6 +5,9 @@ public class City {
 	private String name;
 	private Country country;
 
+	// To allow our controller to deserialize incoming JSON objects
+	public City() {}
+	
 	public City(int id, String name, Country country) {
 		this.id = id;
 		this.name = name;
