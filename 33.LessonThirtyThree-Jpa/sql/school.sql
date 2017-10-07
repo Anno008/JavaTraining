@@ -3,7 +3,7 @@ USE school;
 
 CREATE TABLE student (
     id integer auto_increment PRIMARY KEY,
-    class varchar(10) NOT NULL,
+    card varchar(10) NOT NULL,
     name varchar(50) NOT NULL,
     surname varchar(50) NOT NULL
 );
@@ -23,9 +23,9 @@ CREATE TABLE exam (
     FOREIGN KEY (subject_id) references subject(id)
 );
 
-INSERT INTO student (class, name, surname) VALUES("e11", "Jack", "Sparrow");
-INSERT INTO student (class, name, surname) VALUES("a21", "Jason", "Momoa");
-INSERT INTO student (class, name, surname) VALUES("e11", "Emma", "Watson"); 
+INSERT INTO student (card, name, surname) VALUES("e11", "Jack", "Sparrow");
+INSERT INTO student (card, name, surname) VALUES("a21", "Jason", "Momoa");
+INSERT INTO student (card, name, surname) VALUES("e11", "Emma", "Watson"); 
 
 INSERT INTO subject (name, espb) VALUES ("Which craft", 20);
 INSERT INTO subject (name, espb) VALUES ("Mathematics", 25);
