@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Subject {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 
 	@Column(nullable = false)
 	private String name;
@@ -34,18 +34,18 @@ public class Subject {
 	public Subject() {
 	}
 
-	public Subject(int id, String name, int espb) {
+	public Subject(Long id, String name, int espb) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.espb = espb;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -78,7 +78,8 @@ public class Subject {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + espb;
-		result = prime * result + id;
+		result = prime * result + ((exams == null) ? 0 : exams.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -94,7 +95,15 @@ public class Subject {
 		Subject other = (Subject) obj;
 		if (espb != other.espb)
 			return false;
-		if (id != other.id)
+		if (exams == null) {
+			if (other.exams != null)
+				return false;
+		} else if (!exams.equals(other.exams))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (name == null) {
 			if (other.name != null)

@@ -20,7 +20,7 @@ public class Student {
 
 	@Id
 	@GeneratedValue
-	private int Id;
+	private Long Id;
 
 	@Column(nullable = false)
 	private String name;
@@ -35,7 +35,7 @@ public class Student {
 	@OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
 	private Set<Exam> exams = new HashSet<Exam>();
 
-	public Student(int id, String name, String surname, String card) {
+	public Student(Long id, String name, String surname, String card) {
 		super();
 		Id = id;
 		this.name = name;
@@ -46,11 +46,11 @@ public class Student {
 	public Student() {
 	}
 
-	public int getId() {
+	public Long getId() {
 		return Id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		Id = id;
 	}
 
@@ -84,45 +84,5 @@ public class Student {
 
 	public void setExams(Set<Exam> exams) {
 		this.exams = exams;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + Id;
-		result = prime * result + ((card == null) ? 0 : card.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Student other = (Student) obj;
-		if (Id != other.Id)
-			return false;
-		if (card == null) {
-			if (other.card != null)
-				return false;
-		} else if (!card.equals(other.card))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (surname == null) {
-			if (other.surname != null)
-				return false;
-		} else if (!surname.equals(other.surname))
-			return false;
-		return true;
 	}
 }
