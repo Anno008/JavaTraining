@@ -19,7 +19,7 @@ public class StudentRepository {
 
 	@SuppressWarnings("unchecked")
 	public List<Student> get() {
-		return em.createQuery("SELECT s FROM student").getResultList();
+		return em.createQuery("SELECT s FROM Student s").getResultList();
 	}
 
 	public Student get(Long id) {
