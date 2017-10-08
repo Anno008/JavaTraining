@@ -48,7 +48,7 @@ public class ExamRepository {
 		return new ArrayList<Exam>(studentRepository.get(studentId).getExams());
 	}
 	
-	public List<Exam> findByCourseId(Long courseId) {
+	public List<Exam> findBySubjectId(Long courseId) {
 		return new ArrayList<Exam>(subjectRepository.get(courseId).getExams());
 	}
 	

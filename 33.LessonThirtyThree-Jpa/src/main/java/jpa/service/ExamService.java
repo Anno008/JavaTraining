@@ -35,7 +35,7 @@ public class ExamService {
 	}
 
 	public List<Exam> findBySubjectId(Long subjectId) {
-		return examRepository.findByCourseId(subjectId);
+		return examRepository.findBySubjectId(subjectId);
 	}
 
 	public double findStudentAvgGrade(Long studentId) {
