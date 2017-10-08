@@ -48,8 +48,8 @@ public class ExamRepository {
 		return new ArrayList<Exam>(studentRepository.get(studentId).getExams());
 	}
 	
-	public List<Exam> findBySubjectId(Long courseId) {
-		return new ArrayList<Exam>(subjectRepository.get(courseId).getExams());
+	public List<Exam> findBySubjectId(Long subjectId) {
+		return new ArrayList<Exam>(subjectRepository.get(subjectId).getExams());
 	}
 	
 	public double findStudentAvgGrade(Long studentId) {
