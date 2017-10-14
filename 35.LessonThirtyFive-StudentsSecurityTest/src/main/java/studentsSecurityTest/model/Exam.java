@@ -5,10 +5,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(catalog = "school", name = "exam")
 public class Exam {
 	@Id
 	@GeneratedValue
