@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,10 +18,8 @@ public class Subject {
 	@GeneratedValue
 	private Long id;
 
-	@Column(nullable = false)
 	private String name;
 
-	@Column(nullable = false)
 	private int espb;
 
 	@JsonIgnore

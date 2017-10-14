@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,18 +19,25 @@ public class Student {
 	@GeneratedValue
 	private Long Id;
 
-	@Column(nullable = false)
 	private String name;
 
-	@Column(nullable = false)
 	private String surname;
 
-	@Column(nullable = false)
 	private String card;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
 	private Set<Exam> exams = new HashSet<Exam>();
+
+	public Student() {
+	}
+
+	public Student(String name, String surname, String card) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.card = card;
+	}
 
 	public Student(Long id, String name, String surname, String card) {
 		super();
@@ -39,9 +45,6 @@ public class Student {
 		this.name = name;
 		this.surname = surname;
 		this.card = card;
-	}
-
-	public Student() {
 	}
 
 	public Long getId() {
