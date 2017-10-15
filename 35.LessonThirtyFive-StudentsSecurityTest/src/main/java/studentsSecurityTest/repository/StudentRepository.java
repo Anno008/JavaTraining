@@ -8,6 +8,4 @@ import studentsSecurityTest.model.Student;
 @Component
 public interface StudentRepository extends JpaRepository<Student, Long> {
 	List<Student> findByCard(String cardNumber);
-
-//	List<Student> findAllWithExams();
 }
