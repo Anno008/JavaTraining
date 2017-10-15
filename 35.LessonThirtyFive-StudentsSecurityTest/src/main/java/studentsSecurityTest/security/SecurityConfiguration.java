@@ -48,10 +48,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-				.authorizeRequests().antMatchers("/api/login", "/api/register").permitAll().anyRequest()
-				.authenticated();
+				.authorizeRequests()
+				.antMatchers("/api/login", "/api/register", "/v2/api-docs", "/configuration/ui", "/swagger-resources",
+						"/configuration/security", "/swagger-ui.html", "/webjars/**", "/swagger-resources/**")
+				.permitAll().anyRequest().authenticated();
 
-		httpSecurity.addFilterBefore(authenticationTokenFilterBean(),
-				UsernamePasswordAuthenticationFilter.class);
+		httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 	}
 }
