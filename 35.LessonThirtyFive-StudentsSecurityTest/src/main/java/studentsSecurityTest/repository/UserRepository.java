@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 import studentsSecurityTest.model.user.SecurityUser;
 
 @Component
-public interface UserRepository extends JpaRepository<SecurityUser, Long>{
-
+public interface UserRepository extends JpaRepository<SecurityUser, Long> {
+	public SecurityUser findByUsername(String username);
 }
