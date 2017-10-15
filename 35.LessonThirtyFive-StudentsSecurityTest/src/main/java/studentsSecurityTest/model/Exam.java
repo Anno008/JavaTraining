@@ -20,15 +20,21 @@ public class Exam {
 
 	private int grade;
 
-	public Exam(Long id, Student student, Subject subject, int grade) {
-		this.id = id;
+	public Exam() {
+
+	}
+
+	public Exam(Student student, Subject subject, int grade) {
 		this.student = student;
 		this.subject = subject;
 		this.grade = grade;
 	}
 
-	public Exam() {
-
+	public Exam(Long id, Student student, Subject subject, int grade) {
+		this.id = id;
+		this.student = student;
+		this.subject = subject;
+		this.grade = grade;
 	}
 
 	public Long getId() {

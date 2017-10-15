@@ -29,8 +29,12 @@ public class Subject {
 	public Subject() {
 	}
 
+	public Subject(String name, int espb) {
+		this.name = name;
+		this.espb = espb;
+	}
+
 	public Subject(Long id, String name, int espb) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.espb = espb;
