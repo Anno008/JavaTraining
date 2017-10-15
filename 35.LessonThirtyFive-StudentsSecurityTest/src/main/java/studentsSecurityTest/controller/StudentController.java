@@ -20,7 +20,7 @@ import studentsSecurityTest.model.Student;
 import studentsSecurityTest.service.StudentService;
 
 @RestController
-@RequestMapping(value = "api/students")
+@RequestMapping(value = "/api/students")
 public class StudentController {
 	@Autowired
 	private StudentService studentService;
