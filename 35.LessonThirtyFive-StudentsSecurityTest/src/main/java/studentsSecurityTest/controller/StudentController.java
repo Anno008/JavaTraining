@@ -20,17 +20,24 @@ import studentsSecurityTest.model.Student;
 import studentsSecurityTest.service.StudentService;
 
 @RestController
-@RequestMapping(value = "/api/students")
 public class StudentController {
 	@Autowired
 	private StudentService studentService;
 
-	public ResponseEntity<List<StudentDTO>> getStudentsPage(Pageable page) {
-		return new ResponseEntity<>(studentService.findAll(page).getContent().stream().map(s -> new StudentDTO(s))
-				.collect(Collectors.toList()), HttpStatus.OK);
+//	@RequestMapping(value = "/api/students", method = RequestMethod.GET)
+//	public ResponseEntity<List<StudentDTO>> getStudentsPage(Pageable page) {
+//		return new ResponseEntity<>(studentService.findAll(page).getContent().stream().map(s -> new StudentDTO(s))
+//				.collect(Collectors.toList()), HttpStatus.OK);
+//	}
+
+	@RequestMapping(value = "/api/students", method = RequestMethod.GET)
+	public ResponseEntity<List<StudentDTO>> getStudentsPage() {
+		return new ResponseEntity<>(
+				studentService.findAll().stream().map(s -> new StudentDTO(s)).collect(Collectors.toList()),
+				HttpStatus.OK);
 	}
 
-	@RequestMapping(method = RequestMethod.GET, params = "withExams")
+	@RequestMapping(value = "/api/students", method = RequestMethod.GET, params = "withExams")
 	public ResponseEntity<List<StudentDTO>> getStudentsPageWithExams(Pageable page, @RequestParam boolean withExams) {
 		List<StudentDTO> retVal = new ArrayList<>();
 		for (Student s : studentService.findAll(page)) {
@@ -42,7 +49,7 @@ public class StudentController {
 			}
 			retVal.add(stDTO);
 		}
-		
+
 		return new ResponseEntity<>(retVal, HttpStatus.OK);
 	}
 }

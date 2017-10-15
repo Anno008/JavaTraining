@@ -1,7 +1,6 @@
 package studentsSecurityTest.swagger;
 
 import org.springframework.context.annotation.Bean;
-import static springfox.documentation.builders.PathSelectors.regex;
 import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.builders.PathSelectors;
