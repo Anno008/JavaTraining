@@ -1,5 +1,5 @@
 class Subject {
-    construcotr(name, espb) {
+    constructor(name, espb) {
         this.name = name;
         this.espb = espb;
     }
