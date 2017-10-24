@@ -40,4 +40,8 @@ class StudentsOffice {
     getStudentInfoByAverageGrade() {
         return this.students.sort((s1, s2) => s1.average > s2.average);
     }
+
+    getStudentsByHigherThanAvgGrade(grade) {
+        return this.students.filter(s => s.average > grade);
+    }
 }
