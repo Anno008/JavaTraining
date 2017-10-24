@@ -33,7 +33,11 @@ class StudentsOffice {
         }
     }
 
-    getStudentsInfo(){
+    getStudentsInfo() {
         return this.students.map(s => `${s}`);
+    }
+
+    getStudentInfoByAverageGrade() {
+        return this.students.sort((s1, s2) => s1.average > s2.average);
     }
 }
