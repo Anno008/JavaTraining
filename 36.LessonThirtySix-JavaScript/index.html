@@ -1,8 +1,43 @@
 <html>
-    <head>
-        
-    </head>
-    <body>
-        
-    </body>
-    </html>
+
+<head>
+    <script src="student.js"></script>
+    <script src="subject.js"></script>
+    <script src="exam.js"></script>
+    <script src="studentsOffice.js"></script>
+    <script>
+        const studentsOffice = new StudentsOffice();
+
+        // Initial students
+        const jon = new Student("Jon", "Snow");
+        const jack = new Student("Jack", "Sparrow");
+        const emma = new Student("Emma", "Wattson");
+
+        // Initial subjects
+        const math = new Subject("Mathematics", 11);
+        const whichCraft = new Subject("Whichcraft", 15);
+        const programming = new Subject("Programming", 5);
+
+        // Adding some exams to the students
+        jon.addExam(new Exam(math, 6));
+        jon.addExam(new Exam(whichCraft, 10));
+
+        jack.addExam(new Exam(programming, 7));
+
+        emma.addExam(new Exam(whichCraft, 9));
+        emma.addExam(new Exam(programming, 8));
+
+        // Adding the students to the studentsOffice
+        studentsOffice.addStuednt(jon);
+        studentsOffice.addStuednt(jack);
+        studentsOffice.addStuednt(emma);
+
+        console.log(studentsOffice.getStudentsInfo());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
