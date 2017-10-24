@@ -16,14 +16,15 @@ class Student {
         this.updateAverage();
     }
 
-    updateAverage(){
+    updateAverage() {
         let grade = 0;
         this.exams.forEach((exam) => grade += exam.grade);
         this.average = grade / this.exams.length;
     }
 
     toString() {
-        return `Student: ${this.name} ${this.surname}, with an average grade of: ${this.average}`;
+        return `Student: ${this.name} ${this.surname}, with an average grade of: ${this.average} \n` + 
+            (this.exams.length > 0 ? this.exams.map(e => `${e.subject.toString()}, student achieved a grade of ${e.grade}`).join("\n") : "");
     }
 
 }
