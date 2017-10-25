@@ -44,4 +44,8 @@ class StudentsOffice {
     getStudentsByHigherThanAvgGrade(grade) {
         return this.students.filter(s => s.average > grade);
     }
+
+    getSubjectsInfo(){
+        return this.subjects.map(s => s);
+    }
 }
