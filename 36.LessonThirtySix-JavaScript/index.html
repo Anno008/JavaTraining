@@ -17,7 +17,11 @@
         const math = new Subject("Mathematics", 11);
         const whichCraft = new Subject("Whichcraft", 15);
         const programming = new Subject("Programming", 5);
-
+        // Addin subjects to students office
+        studentsOffice.addSubject(math);
+        studentsOffice.addSubject(whichCraft);
+        studentsOffice.addSubject(programming);
+        
         // Adding some exams to the students
         jon.addExam(new Exam(math, 6));
         jon.addExam(new Exam(whichCraft, 10));
@@ -40,6 +44,9 @@
 
         // Get all students that have a higher grade than 7
         console.log(studentsOffice.getStudentsByHigherThanAvgGrade(7));
+
+        // Get all subjects
+        console.log(studentsOffice.getSubjectsInfo());
     </script>
 </head>
 
