@@ -3,15 +3,25 @@
 <head>
     <script src="index.js"></script>
     <script>
+        console.log("Find index");
         var array = [
-            {"id":1, "name": "Bob", age: 54},
-            {"id":2, "name": "Tom", age: 44},
-            {"id":3, "name": "Rob", age: 34},
-            {"id":4, "name": "Ana", age: 24},
+            { "id": 1, "name": "Bob", age: 54 },
+            { "id": 2, "name": "Tom", age: 44 },
+            { "id": 3, "name": "Rob", age: 34 },
+            { "id": 4, "name": "Ana", age: 24 },
         ];
 
-        console.log("Find index");
         console.log(findIndex(array, (e) => e.age === 44));
+
+        console.log("From Pairs");
+        var arrayPairs = [
+            ["One", 1],
+            ["Two", 2],
+            ["Three", 3]
+        ];
+        
+        console.log(fromPairs(arrayPairs));
+
     </script>
 </head>
 
