@@ -2,6 +2,17 @@
 
 <head>
     <script src="index.js"></script>
+    <script>
+        var array = [
+            {"id":1, "name": "Bob", age: 54},
+            {"id":2, "name": "Tom", age: 44},
+            {"id":3, "name": "Rob", age: 34},
+            {"id":4, "name": "Ana", age: 24},
+        ];
+
+        console.log("Find index");
+        console.log(findIndex(array, (e) => e.age === 44));
+    </script>
 </head>
 
 <body>
