@@ -6,3 +6,11 @@ var findIndex = (array, comperator) => {
     }
     return -1;
 }
+
+var fromPairs = (arrays) => {
+    retVal = {};
+    for(var i = 0; i <arrays.length; i++) {
+        retVal[arrays[i][0]] = arrays[i][1];
+    }
+    return retVal;
+}
