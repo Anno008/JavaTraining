@@ -1,0 +1,9 @@
+<div class="records">
+  <div class="record" *ngFor="let record of records; let i = index">
+    <h2>{{record.title}}</h2>
+    <h2>{{record.author}}</h2>
+    <div>
+      <img src="{{record.imageUrl}}" />
+    </div>
+  </div>
+</div>
