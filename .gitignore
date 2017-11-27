@@ -125,3 +125,6 @@ npm-debug.log
 .vscode
 *.log
 *.stackdump
+
+# angular build generated files #
+webapp/
