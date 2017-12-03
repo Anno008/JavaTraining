@@ -5,7 +5,7 @@ import { JwtUtilsService } from "./jwt-utils.service";
 import { apiUrl } from "../constants";
 
 @Injectable()
-export class AuthenticationServiceService {
+export class AuthenticationService {
 
   constructor(private http: HttpClient, private jwtUtilsService: JwtUtilsService) { }
 
