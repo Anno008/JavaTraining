@@ -8,14 +8,19 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import school.dto.LoginDTO;
 import school.dto.TokenDTO;
+import school.dto.UserDTO;
+import school.model.Role;
+import school.model.SecurityUser;
 import school.security.TokenUtils;
+import school.service.UserDetailsServiceImpl;
 
 @RestController
 public class UserController {
@@ -23,7 +28,7 @@ public class UserController {
 	private AuthenticationManager authenticationManager;
 
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private UserDetailsServiceImpl userDetailsService;
 
 	@Autowired
 	private TokenUtils tokenUtils;
@@ -43,4 +48,21 @@ public class UserController {
 			return new ResponseEntity<>(new TokenDTO(""), HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@RequestMapping(value = "/api/register", method = RequestMethod.POST)
+	public ResponseEntity<UserDTO> register(@RequestBody UserDTO userDTO) {
+		SecurityUser user = new SecurityUser();
+		user.setUsername(userDTO.getUsername());
+		user.setPassword(userDTO.getPassword());
+		user.setRole(Role.User);
+		
+		user = userDetailsService.register(user);
+		
+		 if (user != null) {
+	        	return new ResponseEntity<>(new UserDTO(user), HttpStatus.CREATED); 
+	        } else {
+	        	return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	        }        
+	}
+
 }
