@@ -31,4 +31,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
     }
+    
+    public SecurityUser register(SecurityUser user) {
+    	if(userRepository.findByUsername(user.getUsername()) != null) {
+    		return null;
+    	} else {
+    		return userRepository.save(user);
+    	}
+    }
 }
