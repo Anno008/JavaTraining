@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(catalog = "pcShop", name = "component")
+@Table(catalog = "pc_shop", name = "component")
 public class Component {
 	@Id
 	@GeneratedValue
