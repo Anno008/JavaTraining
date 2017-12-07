@@ -16,6 +16,9 @@ public class Component {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Brand brand;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private ComponentType componentType;
 
 	private String name;
 	private double price;
