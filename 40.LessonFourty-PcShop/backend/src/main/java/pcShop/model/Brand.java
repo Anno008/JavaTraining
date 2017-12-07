@@ -15,6 +15,10 @@ public class Brand {
 
 	private String name;
 
+	public Brand() {
+
+	}
+
 	public Long getId() {
 		return id;
 	}
