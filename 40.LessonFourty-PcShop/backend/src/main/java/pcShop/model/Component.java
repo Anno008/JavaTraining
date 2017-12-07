@@ -16,7 +16,7 @@ public class Component {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Brand brand;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	private ComponentType componentType;
 
@@ -57,5 +57,13 @@ public class Component {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public ComponentType getComponentType() {
+		return componentType;
+	}
+
+	public void setComponentType(ComponentType componentType) {
+		this.componentType = componentType;
 	}
 }
