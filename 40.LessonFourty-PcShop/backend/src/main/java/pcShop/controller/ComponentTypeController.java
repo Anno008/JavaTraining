@@ -17,7 +17,7 @@ public class ComponentTypeController {
 	@Autowired
 	private ComponentTypeService componentTypeService;
 	
-	@PreAuthorize("isAuthorized()")
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<List<ComponentTypeDTO>> get() {
 		return new ResponseEntity<List<ComponentTypeDTO>>(componentTypeService.findAll().stream().map(ComponentTypeDTO::new).collect(Collectors.toList()), HttpStatus.OK);
 	}
