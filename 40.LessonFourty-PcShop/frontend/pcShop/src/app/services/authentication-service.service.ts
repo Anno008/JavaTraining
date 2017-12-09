@@ -10,8 +10,9 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private jwtUtilsService: JwtUtilsService) { }
 
   login(username: string, password: string): Observable<boolean> {
+    console.log("Login called");
     const headers: HttpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
-    return this.http.post(`{ApiUrl/login`, JSON.stringify({ username, password }), { headers })
+    return this.http.post(`${apiUrl}/login`, JSON.stringify({ username, password }), { headers })
       .map((res: any) => {
         const token = res && res["token"];
         if (token) {
