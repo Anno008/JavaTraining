@@ -1,5 +1,6 @@
 <div *ngIf="shoppingCart">
   <h3>Shopping Cart</h3>
+  <h5>Total amount {{shoppingCart.amount}}</h5>
   <ul>
     <li *ngFor="let item of shoppingCart.items">
       <p>
