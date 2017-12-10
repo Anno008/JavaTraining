@@ -16,11 +16,14 @@ import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { CanActivateAuthGuard } from "./services/can-activate-auth.guard";
 import { ComponentsService } from "./services/components-service.service";
 import { BrandService } from "./services/brand-service.service";
+import { ComponentTypeService } from "./services/componentType-service.service";
+import { AddComponentComponent } from "./components/addComponent/addComponent.component";
 
 const appRoutes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "components", component: ComponentsListComponent },
+  { path: "add", component: AddComponentComponent, canActivate: [CanActivateAuthGuard] },
 ];
 
 @NgModule({
@@ -29,6 +32,7 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ComponentsListComponent,
+    AddComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ const appRoutes: Routes = [
     JwtUtilsService,
     ComponentsService,
     BrandService,
+    ComponentTypeService,
   ],
   bootstrap: [AppComponent]
 })

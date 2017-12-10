@@ -8,7 +8,7 @@ import { HttpParams } from "@angular/common/http/src/params";
 import { ComponentType } from "../models/ComponentType";
 
 @Injectable()
-export class BrandService {
+export class ComponentTypeService {
     private readonly path = "api/componentTypes";
     constructor(private http: HttpClient) { }
 
