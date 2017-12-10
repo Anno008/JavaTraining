@@ -2,6 +2,12 @@
   <div class="row">
     <div class="col-md-12">
       <div class="button-group">
+        <label class="text-center">Items per page</label>
+        <select [(ngModel)]="itemsPerPage" (change)="itemsPerPageChanged($event.target.value)">
+          <option>5</option>
+          <option>10</option>
+          <option>20</option>
+        </select>
         <label class="text-center">Current page: {{currentPageNumber + 1}}/{{totalPages}} </label>
         <button class="btn btn-sm btn-success" *ngIf="isAdmin()" [routerLink]="['/add']">Add component</button>
         <button class="btn btn-sm btn-primary pull-right" [disabled]="currentPageNumber>=page.totalPages-1" (click)="changePage(1)">

@@ -22,7 +22,7 @@ export class ComponentsListComponent {
 
   currentPageNumber: number;
   totalPages: number;
-  itemsPerPage= 10;
+  itemsPerPage = 10;
 
   forEdit: Component;
 
@@ -60,6 +60,10 @@ export class ComponentsListComponent {
     );
   }
 
+  itemsPerPageChanged(value: number): void {
+    this.itemsPerPage = value;
+    this.loadData();
+  }
 
   changePage(i: number) {
     this.currentPageNumber += i;
