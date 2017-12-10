@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Rx";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { JwtUtilsService } from "./jwt-utils.service";
-import { apiUrl } from "../constants";
 
 @Injectable()
 export class AuthenticationService {
@@ -12,7 +11,7 @@ export class AuthenticationService {
   login(username: string, password: string): Observable<boolean> {
     console.log("Login called");
     const headers: HttpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
-    return this.http.post(`${apiUrl}/login`, JSON.stringify({ username, password }), { headers })
+    return this.http.post(`/api/login`, JSON.stringify({ username, password }), { headers })
       .map((res: any) => {
         const token = res && res["token"];
         if (token) {
@@ -35,10 +34,12 @@ export class AuthenticationService {
       });
   }
 
-  register(username: string, password: string) :Observable<boolean> {
+  register(username: string, password: string): Observable<boolean> {
+    console.log(`Register called ${username} ${password}`);
     const headers: HttpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
-    return this.http.post(`{ApiUrl/register`, JSON.stringify({ username, password }), { headers })
+    return this.http.post(`/api/register`, JSON.stringify({ username, password }), { headers })
       .map((res: any) => {
+        console.log(res);
         const token = res && res["token"];
         if (token) {
           localStorage.setItem("currentUser", JSON.stringify({
@@ -52,6 +53,7 @@ export class AuthenticationService {
         }
       })
       .catch((error: any) => {
+        console.log(error);
         if (error.status === 400) {
           return Observable.throw("Couldn't complete the registration");
         } else {

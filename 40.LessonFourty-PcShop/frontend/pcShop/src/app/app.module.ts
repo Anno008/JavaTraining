@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
+import { RegisterComponent } from "./components/register/register.component";
 
 import { AuthenticationService } from "./services/authentication-service.service";
 import { JwtUtilsService } from "./services/jwt-utils.service";
@@ -16,12 +17,14 @@ import { CanActivateAuthGuard } from "./services/can-activate-auth.guard";
 const appRoutes: Routes = [
   // { path: 'students', component: StudentsComponent },
   { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

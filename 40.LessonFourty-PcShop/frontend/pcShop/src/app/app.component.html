@@ -17,6 +17,13 @@
           <li *ngIf="isLoggedIn()">
             <a (click)="logout()">Logout</a>
           </li>
+          <li *ngIf="!isLoggedIn()">
+            <a [routerLink]="['/login']">Login</a>
+            <!-- <a [routerLink]="['/studenti',student.id]">Info</a> -->
+          </li>
+          <li *ngIf="!isLoggedIn()">
+            <a [routerLink]="['/register']">Register</a>
+          </li>
         </ul>
       </div>
     </div>

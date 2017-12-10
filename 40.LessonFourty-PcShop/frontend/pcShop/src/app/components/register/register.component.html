@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <form class="form-signin" (ngSubmit)="register()">
+      <label for="username" class="sr-only">Username: </label>
+      <input type="text" id="username" class="form-control" name="username" [(ngModel)]="user.username" placeholder="Username"
+        required autofocus/>
+      <label for="pass" class="sr-only">Password</label>
+      <br/>
+      <input type="password" id="pass" class="form-control" name="pass" [(ngModel)]="user.password" placeholder="Password" required/>
+      <br/>
+      <button class="btn btn-primary" type="Submit">Register</button>
+    </form>
+    <div *ngIf=wrongUsernameOrPass class="alert alert-warning box-msg" role="alert">
+      Incorrect credentials.
+    </div>
+  </div>
+</div>
