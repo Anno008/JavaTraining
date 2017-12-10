@@ -9,10 +9,10 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private jwtUtilsService: JwtUtilsService) { }
 
   login(username: string, password: string): Observable<boolean> {
-    console.log("Login called");
     const headers: HttpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
     return this.http.post(`/api/login`, JSON.stringify({ username, password }), { headers })
       .map((res: any) => {
+        console.log(res);
         const token = res && res["token"];
         if (token) {
           localStorage.setItem("currentUser", JSON.stringify({
@@ -35,11 +35,9 @@ export class AuthenticationService {
   }
 
   register(username: string, password: string): Observable<boolean> {
-    console.log(`Register called ${username} ${password}`);
     const headers: HttpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
     return this.http.post(`/api/register`, JSON.stringify({ username, password }), { headers })
       .map((res: any) => {
-        console.log(res);
         const token = res && res["token"];
         if (token) {
           localStorage.setItem("currentUser", JSON.stringify({
