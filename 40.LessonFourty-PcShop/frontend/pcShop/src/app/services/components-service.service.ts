@@ -18,6 +18,10 @@ export class ComponentsService {
     return this.http.get(this.path, { params: params }) as Observable<Page<Component>>;
   }
 
+  get(id: number): Observable<Component> {
+    return this.http.get(`${this.path}/${id}`) as Observable<Component>;
+  }
+
   save(comp: Component): Observable<Component> {
     let params = new HttpParams();
     params = params.append("Content-Type", "application/json");

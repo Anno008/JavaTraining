@@ -36,7 +36,7 @@
             <td *ngIf="isLoggedIn()" style="width: 250px">
               <button class="btn btn-primary" *ngIf="!isAdmin()" (click)="buy(component)">buy</button>
               <button class="btn btn-danger" *ngIf="isAdmin()" (click)="delete(component)">delete</button>
-              <button class="btn btn-warning" *ngIf="isAdmin()" (click)="edit(component)">edit</button>
+              <button class="btn btn-warning" *ngIf="isAdmin()" [routerLink]="['/edit', component.id]">edit</button>
             </td>
           </tr>
         </tbody>

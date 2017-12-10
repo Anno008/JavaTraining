@@ -9,6 +9,8 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { ComponentsListComponent } from "./components/componentsList/componentsList.component";
+import { AddComponentComponent } from "./components/addComponent/addComponent.component";
+import { EditComponentComponent } from "./components/editComponent/editComponent.component";
 
 import { AuthenticationService } from "./services/authentication-service.service";
 import { JwtUtilsService } from "./services/jwt-utils.service";
@@ -17,13 +19,13 @@ import { CanActivateAuthGuard } from "./services/can-activate-auth.guard";
 import { ComponentsService } from "./services/components-service.service";
 import { BrandService } from "./services/brand-service.service";
 import { ComponentTypeService } from "./services/componentType-service.service";
-import { AddComponentComponent } from "./components/addComponent/addComponent.component";
 
 const appRoutes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "components", component: ComponentsListComponent },
   { path: "add", component: AddComponentComponent, canActivate: [CanActivateAuthGuard] },
+  { path: "edit", component: EditComponentComponent, canActivate: [CanActivateAuthGuard] },
 ];
 
 @NgModule({
@@ -33,6 +35,7 @@ const appRoutes: Routes = [
     RegisterComponent,
     ComponentsListComponent,
     AddComponentComponent,
+    EditComponentComponent,
   ],
   imports: [
     BrowserModule,
