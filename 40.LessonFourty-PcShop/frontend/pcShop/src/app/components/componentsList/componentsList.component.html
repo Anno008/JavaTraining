@@ -1,12 +1,13 @@
 <div class="container" *ngIf="page">
   <div class="row">
     <div class="col-md-12">
-      <div class="button-group pull-right">
-        <button class="btn btn-sm btn-primary" [disabled]="currentPageNumber<1" (click)="changePage(-1)">
-          <span class="glyphicon glyphicon-backward"></span>
-        </button>
-        <button class="btn btn-sm btn-primary" [disabled]="currentPageNumber>=page.totalPages-1" (click)="changePage(1)">
+      <div class="button-group">
+        <label class="text-center">Current page: {{currentPageNumber + 1}} </label>
+        <button class="btn btn-sm btn-primary pull-right" [disabled]="currentPageNumber>=page.totalPages-1" (click)="changePage(1)">
           <span class="glyphicon glyphicon-forward"></span>
+        </button>
+        <button class="btn btn-sm btn-primary pull-right" [disabled]="currentPageNumber<1" (click)="changePage(-1)">
+          <span class="glyphicon glyphicon-backward"></span>
         </button>
       </div>
       <table class="table table-striped">
@@ -22,7 +23,7 @@
         <tbody>
           <tr *ngFor="let component of page.content">
             <td>{{component.brand.name}}</td>
-            <td>{{component.componentType.name}}</td>            
+            <td>{{component.componentType.name}}</td>
             <td>{{component.name}}</td>
             <td>{{component.price}}</td>
             <td *ngIf="isLoggedIn()" style="width: 250px">
