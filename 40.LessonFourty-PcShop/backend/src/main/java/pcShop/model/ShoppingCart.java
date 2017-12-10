@@ -27,4 +27,28 @@ public class ShoppingCart {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<ShoppingCartItem> items = new HashSet<ShoppingCartItem>();
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public SecurityUser getUser() {
+		return user;
+	}
+
+	public void setUser(SecurityUser user) {
+		this.user = user;
+	}
+
+	public Set<ShoppingCartItem> getItems() {
+		return items;
+	}
+
+	public void setItems(Set<ShoppingCartItem> items) {
+		this.items = items;
+	}
+
 }
