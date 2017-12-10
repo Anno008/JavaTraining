@@ -43,9 +43,9 @@ public class ShoppingCartService {
 		return shoppingCatRepository.save(sc);
 	}
 
-	public ShoppingCart removeItem(ShoppingCartItem item) {
+	public ShoppingCart removeItem(Long id) {
 		ShoppingCart sc = find();
-		sc.getItems().removeIf(x -> x.getId().equals(item.getId()));
+		sc.getItems().removeIf(x -> x.getId().equals(id));
 		return shoppingCatRepository.save(sc);
 	}
 
