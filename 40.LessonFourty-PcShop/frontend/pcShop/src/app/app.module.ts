@@ -12,6 +12,7 @@ import { ComponentsListComponent } from "./components/componentsList/componentsL
 import { AddComponentComponent } from "./components/addComponent/addComponent.component";
 import { EditComponentComponent } from "./components/editComponent/editComponent.component";
 import { ShoppingCartComponent } from "./components/shoppingCartComponent/shoppingCart.component";
+import { FilterComponent } from "./components/filter/filter.component";
 
 import { AuthenticationService } from "./services/authentication-service.service";
 import { JwtUtilsService } from "./services/jwt-utils.service";
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     AddComponentComponent,
     EditComponentComponent,
     ShoppingCartComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

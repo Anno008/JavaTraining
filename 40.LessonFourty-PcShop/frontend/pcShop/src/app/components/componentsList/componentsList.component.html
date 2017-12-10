@@ -1,12 +1,16 @@
 <div class="container" *ngIf="page">
-  <div class="row">
+  <div class="inline">
     <div class="col-md-8">
+      <div class="row">
+        <app-filter></app-filter>
+      </div>
       <div class="button-group">
         <label class="text-center">Items per page</label>
         <select [(ngModel)]="itemsPerPage" (change)="itemsPerPageChanged($event.target.value)">
           <option>5</option>
           <option>10</option>
           <option>20</option>
+          <option>40</option>
         </select>
         <label class="text-center">Current page: {{currentPageNumber + 1}}/{{totalPages}} </label>
         <button class="btn btn-sm btn-success" *ngIf="isLoggedIn() && isAdmin()" [routerLink]="['/add']">Add component</button>
