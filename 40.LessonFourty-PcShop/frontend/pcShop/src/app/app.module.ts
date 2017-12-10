@@ -8,16 +8,19 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { ComponentsListComponent } from "./components/componentsList/componentsList.component";
 
 import { AuthenticationService } from "./services/authentication-service.service";
 import { JwtUtilsService } from "./services/jwt-utils.service";
 import { TokenInterceptorService } from "./services/token-interceptor.service";
 import { CanActivateAuthGuard } from "./services/can-activate-auth.guard";
+import { ComponentsService } from "./services/components-service.service";
+import { BrandService } from "./services/brand-service.service";
 
 const appRoutes: Routes = [
-  // { path: 'students', component: StudentsComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+  { path: "components", component: ComponentsListComponent },
 ];
 
 @NgModule({
@@ -25,6 +28,7 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    ComponentsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ const appRoutes: Routes = [
     },
     AuthenticationService,
     CanActivateAuthGuard,
-    JwtUtilsService
+    JwtUtilsService,
+    ComponentsService,
+    BrandService,
   ],
   bootstrap: [AppComponent]
 })
