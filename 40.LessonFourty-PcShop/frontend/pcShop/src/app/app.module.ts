@@ -11,6 +11,7 @@ import { RegisterComponent } from "./components/register/register.component";
 import { ComponentsListComponent } from "./components/componentsList/componentsList.component";
 import { AddComponentComponent } from "./components/addComponent/addComponent.component";
 import { EditComponentComponent } from "./components/editComponent/editComponent.component";
+import { ShoppingCartComponent } from "./components/shoppingCartComponent/shoppingCart.component";
 
 import { AuthenticationService } from "./services/authentication-service.service";
 import { JwtUtilsService } from "./services/jwt-utils.service";
@@ -19,6 +20,7 @@ import { CanActivateAuthGuard } from "./services/can-activate-auth.guard";
 import { ComponentsService } from "./services/components-service.service";
 import { BrandService } from "./services/brand-service.service";
 import { ComponentTypeService } from "./services/componentType-service.service";
+import { ShoppingCartService } from "./services/shoppingCart-service.service";
 
 const appRoutes: Routes = [
   { path: "login", component: LoginComponent },
@@ -26,6 +28,7 @@ const appRoutes: Routes = [
   { path: "components", component: ComponentsListComponent },
   { path: "add", component: AddComponentComponent, canActivate: [CanActivateAuthGuard] },
   { path: "edit", component: EditComponentComponent, canActivate: [CanActivateAuthGuard] },
+  { path: "", redirectTo: "components", pathMatch: "full" },
 ];
 
 @NgModule({
@@ -36,6 +39,7 @@ const appRoutes: Routes = [
     ComponentsListComponent,
     AddComponentComponent,
     EditComponentComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +64,7 @@ const appRoutes: Routes = [
     ComponentsService,
     BrandService,
     ComponentTypeService,
+    ShoppingCartService,
   ],
   bootstrap: [AppComponent]
 })

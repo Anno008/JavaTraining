@@ -9,6 +9,8 @@ import { Page } from "../../models/Page";
 import { Component } from "../../models/Component";
 import { ComponentsService } from "../../services/components-service.service";
 import { BrandService } from "../../services/brand-service.service";
+import { ShoppingCart } from "../../models/ShoppingCart";
+import { ShoppingCartService } from "../../services/shoppingCart-service.service";
 
 @c({
   selector: "app-components",
@@ -17,26 +19,39 @@ import { BrandService } from "../../services/brand-service.service";
 })
 export class ComponentsListComponent {
   brands: Brand[];
-
   page: Page<Component>;
-
   currentPageNumber: number;
   totalPages: number;
   itemsPerPage = 10;
+  shoppingCart: ShoppingCart;
 
   forEdit: Component;
 
 
   constructor(private componentsService: ComponentsService,
     private authenticationService: AuthenticationService,
-    private brandsService: BrandService) { }
+    private brandsService: BrandService,
+    private router: Router,
+    private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.currentPageNumber = 0;
     this.loadData();
   }
 
+  loadShoppingCart() {
+    this.shoppingCartService.get().subscribe(
+      (data) => {
+        this.shoppingCart = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
   loadData() {
+    this.loadShoppingCart();
+
     this.componentsService.getAll(this.currentPageNumber, this.itemsPerPage).subscribe(data => {
       this.page = data;
       this.totalPages = data.totalPages;
@@ -60,6 +75,17 @@ export class ComponentsListComponent {
     );
   }
 
+  buy(item: Component): void {
+    this.shoppingCartService.addItem(item).subscribe(
+      (shoppingCart) => {
+        console.log(shoppingCart);
+        this.shoppingCart = shoppingCart;
+        this.loadShoppingCart();
+      }
+    );
+  }
+
+
   itemsPerPageChanged(value: number): void {
     this.itemsPerPage = value;
     this.loadData();
@@ -76,6 +102,12 @@ export class ComponentsListComponent {
 
   isAdmin(): boolean {
     return this.authenticationService.isAdmin();
+  }
+
+  edit(comp: Component) {
+    console.log(this.router);
+    this.router.navigate(["edit", comp.id]);
+    console.log(this.router);
   }
 }
 
