@@ -18,7 +18,7 @@ public class BrandController {
 	@Autowired
 	private BrandService brandService;
 
-	@PreAuthorize("isAuthenticated()")
+//	@PreAuthorize("isAuthenticated()")
 	@GetMapping(value = "api/brands")
 	public ResponseEntity<List<BrandDTO>> get() {
 		return new ResponseEntity<List<BrandDTO>>(brandService.findAll().stream().map(BrandDTO::new).collect(Collectors.toList()), HttpStatus.OK);

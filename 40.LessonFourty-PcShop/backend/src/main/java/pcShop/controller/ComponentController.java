@@ -23,7 +23,7 @@ public class ComponentController {
 	@Autowired
 	private ComponentService componentService;
 
-	@PreAuthorize("isAuthenticated()")
+//	@PreAuthorize("isAuthenticated()")
 	@GetMapping(value = "api/components")
 	public Page<Component> get(Pageable pageable) {
 		return componentService.findAll(pageable);
