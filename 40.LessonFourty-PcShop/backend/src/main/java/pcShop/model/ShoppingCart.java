@@ -23,6 +23,8 @@ public class ShoppingCart {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	SecurityUser user;
+	
+	private double amount;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<ShoppingCartItem> items = new HashSet<ShoppingCartItem>();
@@ -53,6 +55,14 @@ public class ShoppingCart {
 
 	public void setItems(Set<ShoppingCartItem> items) {
 		this.items = items;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 }

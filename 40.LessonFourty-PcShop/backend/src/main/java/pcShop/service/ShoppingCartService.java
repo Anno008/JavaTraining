@@ -40,6 +40,7 @@ public class ShoppingCartService {
 	public ShoppingCart addItem(pcShop.model.Component comp) {
 		ShoppingCart sc = find();
 		sc.getItems().add(new ShoppingCartItem(comp));
+		sc.setAmount(sc.getItems().stream().mapToDouble(x -> x.getComponent().getPrice()).sum());
 		return shoppingCatRepository.save(sc);
 	}
 
@@ -52,6 +53,7 @@ public class ShoppingCartService {
 				sc.getItems().remove(item);
 			}
 		}
+		sc.setAmount(sc.getItems().stream().mapToDouble(x -> x.getComponent().getPrice()).sum());
 		return shoppingCatRepository.save(sc);
 	}
 

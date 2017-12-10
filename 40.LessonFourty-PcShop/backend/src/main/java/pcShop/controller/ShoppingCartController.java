@@ -29,7 +29,7 @@ public class ShoppingCartController {
     
     @PreAuthorize("isAuthenticated()")
     @PostMapping(value = "api/shoppingCart")
-    public ResponseEntity<ShoppingCartDTO> createExam(@RequestBody Component comp) {
+    public ResponseEntity<ShoppingCartDTO> add(@RequestBody Component comp) {
     	return new ResponseEntity<>(new ShoppingCartDTO(scServ.addItem(comp)),HttpStatus.OK);
     }
     
