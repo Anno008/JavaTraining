@@ -50,7 +50,9 @@ export class ComponentsListComponent {
     );
   }
   loadData() {
-    this.loadShoppingCart();
+    if (this.authenticationService.getCurrentUser()) {
+      this.loadShoppingCart();
+    }
 
     this.componentsService.getAll(this.currentPageNumber, this.itemsPerPage).subscribe(data => {
       this.page = data;
@@ -78,7 +80,6 @@ export class ComponentsListComponent {
   buy(item: Component): void {
     this.shoppingCartService.addItem(item).subscribe(
       (shoppingCart) => {
-        console.log(shoppingCart);
         this.shoppingCart = shoppingCart;
         this.loadShoppingCart();
       }
@@ -105,9 +106,7 @@ export class ComponentsListComponent {
   }
 
   edit(comp: Component) {
-    console.log(this.router);
     this.router.navigate(["edit", comp.id]);
-    console.log(this.router);
   }
 }
 

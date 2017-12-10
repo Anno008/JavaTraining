@@ -20,11 +20,17 @@ export class AppComponent {
   }
 
   isLoggedIn(): boolean {
-    this.getCurrentUsername();
-    return this.authenticationService.isLoggedIn();
+    const res = this.authenticationService.isLoggedIn();
+    if (res) {
+      this.getCurrentUsername();
+    }
+    return res;
   }
 
   getCurrentUsername(): void {
-    this.user = this.authenticationService.getCurrentUser();
+    const res = this.authenticationService.getCurrentUser();
+    if (res) {
+      this.user = res;
+    }
   }
 }

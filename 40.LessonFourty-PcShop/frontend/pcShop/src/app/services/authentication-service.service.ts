@@ -12,7 +12,6 @@ export class AuthenticationService {
     const headers: HttpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
     return this.http.post(`/api/login`, JSON.stringify({ username, password }), { headers })
       .map((res: any) => {
-        console.log(res);
         const token = res && res["token"];
         if (token) {
           localStorage.setItem("currentUser", JSON.stringify({
@@ -87,6 +86,10 @@ export class AuthenticationService {
   }
 
   isAdmin() {
-    return this.getCurrentUser().roles.indexOf("Admin") >= 0;
+    const res = this.getCurrentUser();
+    if (res) {
+      return res.roles.indexOf("Admin") >= 0;
+    }
+    return false;
   }
 }

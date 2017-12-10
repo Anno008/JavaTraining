@@ -42,7 +42,6 @@ export class AddComponentComponent {
     this.brandService.getAll().subscribe(
       (data) => {
         this.brands = data;
-        console.log(data);
       },
       (error) => {
         console.log(error);
@@ -68,7 +67,6 @@ export class AddComponentComponent {
   add() {
     this.compnoentService.save(this.comp).subscribe(
       (yes) => {
-        alert("Success");
       },
       (no) => {
         alert("Error");
@@ -81,7 +79,6 @@ export class AddComponentComponent {
       price: 0
     };
     const res = confirm("Do you want to add more items or go back to the list?");
-    console.log(res);
     if (!res) {
       this.router.navigate(["/components"]);
     }

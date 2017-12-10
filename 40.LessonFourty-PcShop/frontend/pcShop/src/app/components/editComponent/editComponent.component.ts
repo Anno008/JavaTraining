@@ -43,7 +43,6 @@ export class EditComponentComponent {
     this.brandService.getAll().subscribe(
       (data) => {
         this.brands = data;
-        console.log(data);
       },
       (error) => {
         console.log(error);
@@ -63,8 +62,8 @@ export class EditComponentComponent {
         (yes) => {
           this.comp = yes;
         },
-        (no) => {
-          console.log(no);
+        (error) => {
+          console.log(error);
         });
     });
 
