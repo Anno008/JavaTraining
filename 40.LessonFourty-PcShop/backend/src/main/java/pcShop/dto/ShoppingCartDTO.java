@@ -8,6 +8,9 @@ import pcShop.model.ShoppingCartItem;
 
 public class ShoppingCartDTO {
 
+	public ShoppingCartDTO() {
+	}
+
 	public ShoppingCartDTO(ShoppingCart sc) {
 		this.items = sc.getItems();
 	}

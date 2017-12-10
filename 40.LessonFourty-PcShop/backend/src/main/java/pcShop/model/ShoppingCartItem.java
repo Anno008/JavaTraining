@@ -21,6 +21,10 @@ public class ShoppingCartItem {
 		this.component = component;
 	}
 
+	public ShoppingCartItem() {
+
+	}
+
 	public Long getId() {
 		return id;
 	}
