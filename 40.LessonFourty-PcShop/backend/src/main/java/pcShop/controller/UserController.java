@@ -35,22 +35,11 @@ public class UserController {
 
 	@PostMapping(value = "/api/login")
 	public ResponseEntity<TokenDTO> login(@RequestBody LoginDTO loginDTO) {
-		try {
-			final UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-					loginDTO.getUsername(), loginDTO.getPassword());
-			final Authentication authentication = authenticationManager.authenticate(token);
-			SecurityContextHolder.getContext().setAuthentication(authentication);
-			final UserDetails details = userDetailsService.loadUserByUsername(loginDTO.getUsername());
-			final String genToken = tokenUtils.generateToken(details);
-
-			return new ResponseEntity<>(new TokenDTO(genToken), HttpStatus.OK);
-		} catch (Exception ex) {
-			return new ResponseEntity<>(new TokenDTO(""), HttpStatus.BAD_REQUEST);
-		}
+		return generateToken(loginDTO.getUsername(), loginDTO.getPassword());
 	}
 
 	@RequestMapping(value = "/api/register", method = RequestMethod.POST)
-	public ResponseEntity<UserDTO> register(@RequestBody UserDTO userDTO) {
+	public ResponseEntity<TokenDTO> register(@RequestBody UserDTO userDTO) {
 		SecurityUser user = new SecurityUser();
 		user.setUsername(userDTO.getUsername());
 		user.setPassword(userDTO.getPassword());
@@ -58,10 +47,24 @@ public class UserController {
 
 		user = userDetailsService.register(user);
 
-		if (user != null) {
-			return new ResponseEntity<>(new UserDTO(user), HttpStatus.CREATED);
-		} else {
+		if (user == null) 
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+		return generateToken(user.getUsername(), userDTO.getPassword());
+	}
+
+	private ResponseEntity<TokenDTO> generateToken(String username, String rawPassword) {
+		try {
+			final UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username,
+					rawPassword);
+			final Authentication authentication = authenticationManager.authenticate(token);
+			SecurityContextHolder.getContext().setAuthentication(authentication);
+			final UserDetails details = userDetailsService.loadUserByUsername(username);
+			final String genToken = tokenUtils.generateToken(details);
+
+			return new ResponseEntity<>(new TokenDTO(genToken), HttpStatus.OK);
+		} catch (Exception ex) {
+			return new ResponseEntity<>(new TokenDTO(""), HttpStatus.BAD_REQUEST);
 		}
 	}
 }

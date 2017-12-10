@@ -23,7 +23,6 @@ public class ComponentController {
 	@Autowired
 	private ComponentService componentService;
 
-//	@PreAuthorize("isAuthenticated()")
 	@GetMapping(value = "api/components")
 	public Page<Component> get(Pageable pageable) {
 		return componentService.findAll(pageable);
@@ -53,7 +52,7 @@ public class ComponentController {
 		Component c = componentService.findOne(id);
 
 		if (c == null)
-			return new ResponseEntity(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
 		c.setName(component.getName());
 		c.setPrice(component.getPrice());
