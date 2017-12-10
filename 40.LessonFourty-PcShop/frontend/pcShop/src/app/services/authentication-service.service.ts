@@ -88,4 +88,7 @@ export class AuthenticationService {
     }
   }
 
+  isAdmin() {
+    return this.getCurrentUser().roles.indexOf("Admin") >= 0;
+  }
 }
