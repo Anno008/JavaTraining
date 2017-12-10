@@ -21,6 +21,8 @@ export class ComponentsListComponent {
   page: Page<Component>;
 
   currentPageNumber: number;
+  totalPages: number;
+  itemsPerPage= 10;
 
   forEdit: Component;
 
@@ -32,6 +34,13 @@ export class ComponentsListComponent {
   ngOnInit() {
     this.currentPageNumber = 0;
     this.loadData();
+  }
+
+  loadData() {
+    this.componentsService.getAll(this.currentPageNumber, this.itemsPerPage).subscribe(data => {
+      this.page = data;
+      this.totalPages = data.totalPages;
+    });
 
     this.brandsService.getAll().subscribe(
       (brands) => {
@@ -40,14 +49,7 @@ export class ComponentsListComponent {
     );
   }
 
-  loadData() {
-    this.componentsService.getAll(this.currentPageNumber).subscribe(data => {
-      this.page = data;
-    });
-  }
-
   delete(comp: Component) {
-    console.log(comp);
     this.componentsService.delete(comp).subscribe(
       (res) => {
         this.loadData();

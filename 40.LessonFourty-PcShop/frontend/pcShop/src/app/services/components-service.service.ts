@@ -10,9 +10,10 @@ export class ComponentsService {
   private readonly path = "api/components";
   constructor(private http: HttpClient) { }
 
-  getAll(page: number): Observable<Page<Component>> {
+  getAll(page: number, itemsPerPage: number): Observable<Page<Component>> {
     let params = new HttpParams();
     params = params.append("page", page.toString());
+    params = params.append("size", itemsPerPage.toString());
 
     return this.http.get(this.path, { params: params }) as Observable<Page<Component>>;
   }
