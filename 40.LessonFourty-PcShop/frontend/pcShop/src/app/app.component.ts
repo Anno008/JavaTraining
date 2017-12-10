@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 })
 export class AppComponent {
   title = "pcShop";
+  user = "";
 
   constructor(private authenticationService: AuthenticationService, private router: Router) {
   }
@@ -19,6 +20,11 @@ export class AppComponent {
   }
 
   isLoggedIn(): boolean {
+    this.getCurrentUsername();
     return this.authenticationService.isLoggedIn();
+  }
+
+  getCurrentUsername(): void {
+    this.user = this.authenticationService.getCurrentUser();
   }
 }

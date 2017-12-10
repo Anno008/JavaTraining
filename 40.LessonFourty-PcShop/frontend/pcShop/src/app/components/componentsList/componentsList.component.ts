@@ -51,6 +51,10 @@ export class ComponentsListComponent {
     this.loadData();
   }
 
+  isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
+
   isAdmin(): boolean {
     return this.authenticationService.isAdmin();
   }

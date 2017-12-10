@@ -16,7 +16,7 @@
             <th>Type</th>
             <th>Name</th>
             <th>Price</th>
-            <th>Action</th>
+            <th *ngIf="isLoggedIn()">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
             <td>{{component.componentType.name}}</td>            
             <td>{{component.name}}</td>
             <td>{{component.price}}</td>
-            <td style="width: 250px">
+            <td *ngIf="isLoggedIn()" style="width: 250px">
               <button class="btn btn-primary" *ngIf="!isAdmin()" (click)="buy(component)">buy</button>
               <button class="btn btn-danger" *ngIf="isAdmin()" (click)="delete(component)">delete</button>
               <button class="btn btn-warning" *ngIf="isAdmin()" (click)="edit(component)">edit</button>

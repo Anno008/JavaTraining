@@ -25,7 +25,8 @@ export class RegisterComponent {
     this.authenticationService.register(this.user.username, this.user.password).subscribe(
       (registered: boolean) => {
         if (registered) {
-          this.router.navigate(["/"]);
+          this.authenticationService.login(this.user.username, this.user.password);
+          this.router.navigate(["/components"]);
         }
       }
       ,
