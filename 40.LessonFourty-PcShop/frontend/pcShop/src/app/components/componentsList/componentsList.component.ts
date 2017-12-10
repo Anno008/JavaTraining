@@ -46,6 +46,19 @@ export class ComponentsListComponent {
     });
   }
 
+  delete(comp: Component) {
+    console.log(comp);
+    this.componentsService.delete(comp).subscribe(
+      (res) => {
+        this.loadData();
+      },
+      (err) => {
+        this.loadData();
+      }
+    );
+  }
+
+
   changePage(i: number) {
     this.currentPageNumber += i;
     this.loadData();

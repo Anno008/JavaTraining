@@ -26,7 +26,7 @@ export class ComponentsService {
 
   }
 
-  deleteComputerComponent(comp: Component) {
+  delete(comp: Component): any {
     return this.http.delete(`${this.path}/${comp.id}`);
   }
 }
