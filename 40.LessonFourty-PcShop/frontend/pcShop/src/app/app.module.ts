@@ -28,7 +28,7 @@ const appRoutes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "components", component: ComponentsListComponent },
   { path: "add", component: AddComponentComponent, canActivate: [CanActivateAuthGuard] },
-  { path: "edit", component: EditComponentComponent, canActivate: [CanActivateAuthGuard] },
+  { path: "edit/:id", component: EditComponentComponent, canActivate: [CanActivateAuthGuard] },
   { path: "", redirectTo: "components", pathMatch: "full" },
 ];
 

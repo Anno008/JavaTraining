@@ -32,7 +32,6 @@ export class EditComponentComponent {
     private componentService: ComponentsService,
     private router: Router,
     private route: ActivatedRoute) {
-
   }
 
   ngOnInit() {
@@ -43,33 +42,32 @@ export class EditComponentComponent {
     this.brandService.getAll().subscribe(
       (data) => {
         this.brands = data;
+        this.componentTypeService.getAll().subscribe(
+          (data1) => {
+            this.componentTypes = data1;
+            this.route.params.subscribe((params) => {
+              this.componentService.get(+params["id"]).subscribe(
+                (data2) => {
+                  this.comp = data2;
+                  this.dataLoaded = true;
+                },
+                (error) => {
+                  console.log(error);
+                });
+            });
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
       },
       (error) => {
         console.log(error);
       }
     );
-
-    this.componentTypeService.getAll().subscribe(
-      (data) => {
-        this.componentTypes = data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    this.route.params.subscribe((params) => {
-      this.componentService.get(+params["id"]).subscribe(
-        (yes) => {
-          this.comp = yes;
-        },
-        (error) => {
-          console.log(error);
-        });
-    });
-
-    this.dataLoaded = true;
 
   }
+
   save() {
     this.componentService.save(this.comp).subscribe(
       (yes) => {
