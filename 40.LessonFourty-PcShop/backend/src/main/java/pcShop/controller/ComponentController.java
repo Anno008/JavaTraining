@@ -28,6 +28,11 @@ public class ComponentController {
 		return componentService.findAll(pageable);
 	}
 
+	@GetMapping(value = "api/components/{id}")
+	public ResponseEntity<Component> get(@PathVariable Long id) {
+		return new ResponseEntity<Component>(componentService.findOne(id), HttpStatus.OK);
+	}
+
 	@PreAuthorize("hasAnyAuthority('Admin')")
 	@PostMapping(value = "api/components")
 	public ResponseEntity<Component> create(@RequestBody Component component) {
@@ -47,7 +52,7 @@ public class ComponentController {
 	}
 
 	@PreAuthorize("hasAnyAuthority('Admin')")
-	@PutMapping(value = "api/comonents/{id}")
+	@PutMapping(value = "api/components/{id}")
 	public ResponseEntity<Component> update(@PathVariable Long id, @RequestBody Component component) {
 		Component c = componentService.findOne(id);
 
