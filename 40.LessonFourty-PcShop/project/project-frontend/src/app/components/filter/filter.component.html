@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <input name="name" class="input inline" (input)="selectionChanged()" ng-model="filter.name" />
+    <select name="brand" class="inline" [(ngModel)]="filter.brand" (change)="selectionChanged()">
+      <option *ngFor="let brand of brands" [ngValue]="brand">{{brand.name}}</option>
+    </select>
+    <select required name="componentType" class="inline" [(ngModel)]="filter.type" (change)="selectionChanged()">
+      <option *ngFor="let componentType of types" [ngValue]="componentType">{{componentType.name}}</option>
+    </select>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container">
+  <!-- <div class="container" *ngIf="page"> -->
+  <!-- <div class="inline">
+    <div class="col-md-8">
+      <div class="row">
+        <app-filter></app-filter>
+      </div>
+      <div class="button-group">
+        <label class="text-center">Items per page</label>
+        <select [(ngModel)]="itemsPerPage" (change)="itemsPerPageChanged($event.target.value)">
+          <option>5</option>
+          <option>10</option>
+          <option>20</option>
+          <option>40</option>
+        </select>
+        <label class="text-center">Current page: {{currentPageNumber + 1}}/{{totalPages}} </label>
+        <button class="btn btn-sm btn-success" *ngIf="isLoggedIn() && isAdmin()" [routerLink]="['/add']">Add component</button>
+        <button class="btn btn-sm btn-primary pull-right" [disabled]="currentPageNumber>=page.totalPages-1" (click)="changePage(1)">
+          <span class="glyphicon glyphicon-forward"></span>
+        </button>
+        <button class="btn btn-sm btn-primary pull-right" [disabled]="currentPageNumber<1" (click)="changePage(-1)">
+          <span class="glyphicon glyphicon-backward"></span>
+        </button>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th *ngIf="isLoggedIn()">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let component of page.content">
+            <td>{{component.brand.name}}</td>
+            <td>{{component.componentType.name}}</td>
+            <td>{{component.name}}</td>
+            <td>{{component.price}}</td>
+            <td *ngIf="isLoggedIn()" style="width: 250px">
+              <button class="btn btn-primary" *ngIf="!isAdmin()" (click)="buy(component)">Buy</button>
+              <button class="btn btn-danger" *ngIf="isAdmin()" (click)="delete(component)">Delete</button>
+              <button class="btn btn-warning" *ngIf="isAdmin()" [routerLink]="['/edit', component.id]">edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4" *ngIf="!isAdmin()">
+      <app-shopping-cart [shoppingCart]="shoppingCart"></app-shopping-cart>
+    </div>
+  </div> -->
+</div>

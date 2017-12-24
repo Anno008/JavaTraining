@@ -1,0 +1,24 @@
+<div *ngIf="shoppingCart">
+  <h3>Shopping Cart</h3>
+  <h5>Total amount {{shoppingCart.amount}}</h5>
+  <ul>
+    <li *ngFor="let item of shoppingCart.items">
+      <p>
+        Brand:
+        <span>{{item.component.brand.name}}</span>
+      </p>
+      <p>
+        Component:
+        <span>
+          {{item.component.name}}
+        </span>
+      </p>
+      <p>
+        Price:
+        <span>{{item.component.price}}</span>
+      </p>
+      <button class="btn btn-danger" (click)="delete(item)">Remove</button>
+      <br/>
+    </li>
+  </ul>
+</div>
