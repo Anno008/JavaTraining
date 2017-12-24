@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(catalog = "pc_shop", name = "security_user")
+@Table(catalog = "project", name = "security_user")
 public class SecurityUser {
 	@Id
 	@GeneratedValue

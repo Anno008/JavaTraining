@@ -37,10 +37,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
     
     public SecurityUser register(SecurityUser user) {
-//    	if(userRepository.findByUsername(user.getUsername()) != null) {
-//    		// TODO: handle if a user with the provided user name already exists
-//    		return null;
-//    	}
+    	if(userRepository.findByUsername(user.getUsername()).isPresent()) {
+    		return null;
+    	}
+    	
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userRepository.save(user);
     }
