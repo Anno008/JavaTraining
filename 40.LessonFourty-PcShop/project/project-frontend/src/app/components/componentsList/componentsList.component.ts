@@ -39,6 +39,17 @@ export class ComponentsListComponent {
     // this.loadData();
   }
 
+  // search(filter:Filter){
+  //   console.log(filter);
+  //   this.filter=filter
+  //   this.menuItemService.getAll(this.currentPageNumber,
+  // this.itemsPerPage,filter.name,filter.categoryId).subscribe(data => {
+  //     this.page=data;
+  //     this.totalPages=data.totalPages;
+
+  //   })
+  // }
+
   loadShoppingCart() {
     this.shoppingCartService.get().subscribe(
       (data) => {

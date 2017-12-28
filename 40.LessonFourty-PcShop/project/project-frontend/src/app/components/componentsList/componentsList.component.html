@@ -4,6 +4,8 @@
     <div class="col-md-8">
       <div class="row">
         <app-filter></app-filter>
+                   <app-filter (filterItems)="search($event)"></app-filter>    
+
       </div>
       <div class="button-group">
         <label class="text-center">Items per page</label>

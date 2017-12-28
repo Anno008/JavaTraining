@@ -38,8 +38,52 @@ export class FilterComponent implements OnInit {
   selectionChanged() {
     console.log(this.filter);
   }
-
-  test() {
-    console.log("Doubt");
-  }
 }
+
+// import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+// import { Input } from "@angular/core";
+// import { MenuItemListComponent } from "../menu-item-list/menu-item-list.component";
+// import { MenuItemService } from "../../services/menu-item-service.service";
+// import { Output } from "@angular/core";
+// import { EventEmitter } from "@angular/core";
+// import { Filter } from "../../models/FIlter";
+// import { CategoryService } from "../../services/category-service.service";
+// import { Category } from "../../models/Category";
+
+
+// @Component({
+//   selector: "app-filter",
+//   templateUrl: "./filter.component.html",
+//   styleUrls: ["./filter.component.css"],
+// })
+// export class FilterComponent implements OnInit {
+
+//    @Output() filterItems: EventEmitter<Filter> = new EventEmitter();
+
+//   filter: Filter = {
+//     name: "",
+//     categoryId: 0
+//   }
+//   categories: Category[];
+//   dataLoaded = false;
+//   constructor(private menuItemService: MenuItemService,
+//     private categoryService: CategoryService
+
+//   ) {
+//   }
+
+//   ngOnInit() {
+//     this.loadData();
+//   }
+//   loadData() {
+//     this.categoryService.getAll().subscribe(data => {
+//       this.categories = data;
+//       this.dataLoaded = true;
+//     }
+//     );
+
+//   }
+//   selectionChanged() {
+//     this.filterItems.next(this.filter);
+//   }
+// }

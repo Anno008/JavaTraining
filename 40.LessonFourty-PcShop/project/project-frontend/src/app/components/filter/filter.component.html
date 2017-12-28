@@ -9,3 +9,16 @@
     </select>
   </div>
 </div>
+
+
+<!-- <div class="container" *ngIf="dataLoaded">
+  <div class="row">
+    <input name="name" class="input inline" (input)="selectionChanged()" [(ngModel)]="filter.name" />
+
+    <select required name="categoryId" class="inline" [(ngModel)]="filter.categoryId" (change)="selectionChanged()">
+        <option [ngValue]="0">All</option>
+        
+      <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+    </select>
+  </div>
+</div> -->
