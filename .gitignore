@@ -132,3 +132,4 @@ webapp/*
 !webapp/index.html
 /src/main/webapp/*
 /src/main/webapp/
+**/webapp/
