@@ -48,14 +48,6 @@ export class AuthenticationService {
         } else {
           return false;
         }
-      })
-      .catch((error: any) => {
-        console.log(error);
-        if (error.status === 400) {
-          return Observable.throw("Couldn't complete the registration");
-        } else {
-          return Observable.throw(error.json().error || "Server error");
-        }
       });
   }
 

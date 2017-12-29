@@ -25,7 +25,7 @@ export class LoginComponent {
     this.authenticationService.login(this.user.username, this.user.password).subscribe(
       (loggedIn: boolean) => {
         if (loggedIn) {
-          this.router.navigate(["/components"]);
+          this.router.navigate(["/list"]);
         }
       }
       ,

@@ -26,17 +26,16 @@ export class RegisterComponent {
       (registered: boolean) => {
         if (registered) {
           this.authenticationService.login(this.user.username, this.user.password);
-          this.router.navigate(["/components"]);
+          this.router.navigate(["/list"]);
+        } else {
+          this.error = true;
+          this.message = "Unexpected error, please try again.";
         }
       }
       ,
       (err: Error) => {
-        if (err.toString() === "Illegal login") {
-          this.message = err.message;
-          this.error = true;
-        } else {
-          Observable.throw(err);
-        }
+        this.message = err.message;
+        this.error = true;
       });
   }
 
