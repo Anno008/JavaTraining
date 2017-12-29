@@ -11,6 +11,8 @@ import { ComponentsService } from "../../services/components-service.service";
 import { BrandService } from "../../services/brand-service.service";
 import { ShoppingCart } from "../../models/ShoppingCart";
 import { ShoppingCartService } from "../../services/shoppingCart-service.service";
+import { ComponentType } from "../../models/ComponentType";
+import { ComponentTypeService } from "../../services/componentType-service.service";
 
 @c({
   selector: "app-components",
@@ -19,6 +21,10 @@ import { ShoppingCartService } from "../../services/shoppingCart-service.service
 })
 export class ComponentsListComponent {
   brands: Brand[];
+  types: ComponentType[];
+  activeComponent: Component;
+
+
   page: Page<Component>;
   currentPageNumber: number;
   totalPages: number;
@@ -30,6 +36,7 @@ export class ComponentsListComponent {
 
   constructor(private componentsService: ComponentsService,
     private authenticationService: AuthenticationService,
+    private componentTypeService: ComponentTypeService,
     private brandsService: BrandService,
     private router: Router,
     private shoppingCartService: ShoppingCartService) { }
@@ -64,6 +71,8 @@ export class ComponentsListComponent {
         this.brands = brands;
       }
     );
+
+    this.componentTypeService.getAll().subscribe((data) => this.types = data);
   }
 
   delete(comp: Component) {
@@ -106,7 +115,21 @@ export class ComponentsListComponent {
   }
 
   edit(comp: Component) {
-    this.router.navigate(["edit", comp.id]);
+    // this.router.navigate(["edit", comp.id]);
+    this.activeComponent = comp;
+  }
+
+  add() {
+    this.activeComponent = {
+      componentType: undefined,
+      brand: undefined,
+      name: "",
+      price: 0
+    };
+  }
+
+  save(compo: Component) {
+    this.componentsService.save(compo).subscribe(() => this.loadData());
   }
 }
 

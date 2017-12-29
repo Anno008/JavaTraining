@@ -13,7 +13,9 @@
           <option>40</option>
         </select>
         <label class="text-center">Current page: {{currentPageNumber + 1}}/{{totalPages}} </label>
-        <button class="btn btn-sm btn-success" *ngIf="isLoggedIn() && isAdmin()" [routerLink]="['/add']">Add component</button>
+        <!-- <button class="btn btn-sm btn-success" *ngIf="isLoggedIn() && isAdmin()" [routerLink]="['/add']">Add component</button> -->
+        <button class="btn btn-sm btn-success" *ngIf="isLoggedIn() && isAdmin()" (click)="add()">Add component</button>
+        
         <button class="btn btn-sm btn-primary pull-right" [disabled]="currentPageNumber>=page.totalPages-1" (click)="changePage(1)">
           <span class="glyphicon glyphicon-forward"></span>
         </button>
@@ -40,7 +42,8 @@
             <td *ngIf="isLoggedIn()" style="width: 250px">
               <button class="btn btn-primary" *ngIf="!isAdmin()" (click)="buy(component)">Buy</button>
               <button class="btn btn-danger" *ngIf="isAdmin()" (click)="delete(component)">Delete</button>
-              <button class="btn btn-warning" *ngIf="isAdmin()" [routerLink]="['/edit', component.id]">edit</button>
+              <!-- <button class="btn btn-warning" *ngIf="isAdmin()" [routerLink]="['/edit', component.id]">edit</button> -->
+              <button class="btn btn-warning" *ngIf="isAdmin()" (click)="edit(component)">Edit</button>
             </td>
           </tr>
         </tbody>
@@ -48,6 +51,9 @@
     </div>
     <div class="col-md-4" *ngIf="!isAdmin()">
       <app-shopping-cart [shoppingCart]="shoppingCart"></app-shopping-cart>
+    </div>
+    <div class="col-md-4" *ngIf="isAdmin()">
+      <app-edit [componentTypes]="types" [brands]="brands" [comp]="activeComponent" (componentToSave)="save($event)"></app-edit>
     </div>
   </div>
 </div>

@@ -38,6 +38,7 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ListComponent,
+    EditComponent
     // AddComponentComponent,
     // EditComponentComponent,
     // ShoppingCartComponent,
