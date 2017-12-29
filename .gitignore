@@ -129,3 +129,6 @@ npm-debug.log
 # angular build generated files #
 webapp/*
 !webapp/.gitkeep
+!webapp/index.html
+/src/main/webapp/*
+/src/main/webapp/
