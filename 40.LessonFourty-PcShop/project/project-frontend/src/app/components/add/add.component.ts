@@ -16,11 +16,11 @@ import { ComponentType } from "../../models/ComponentType";
 import { ComponentTypeService } from "../../services/componentType-service.service";
 
 @c({
-  selector: "app-add-component",
-  templateUrl: "./addComponent.component.html",
-  styleUrls: ["./addComponent.component.css"]
+  selector: "app-add",
+  templateUrl: "./add.component.html",
+  styleUrls: ["./add.component.css"]
 })
-export class AddComponentComponent {
+export class AddComponent {
   comp: Component;
 
   dataLoaded = false;

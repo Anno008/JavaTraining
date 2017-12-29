@@ -8,9 +8,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
-import { ComponentsListComponent } from "./components/componentsList/componentsList.component";
-import { AddComponentComponent } from "./components/addComponent/addComponent.component";
-import { EditComponentComponent } from "./components/editComponent/editComponent.component";
+import { ListComponent } from "./components/list/list.component";
+import { AddComponent } from "./components/add/add.component";
+import { EditComponent } from "./components/edit/edit.component";
 import { ShoppingCartComponent } from "./components/shoppingCartComponent/shoppingCart.component";
 import { FilterComponent } from "./components/filter/filter.component";
 
@@ -26,7 +26,7 @@ import { ShoppingCartService } from "./services/shoppingCart-service.service";
 const appRoutes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "components", component: ComponentsListComponent },
+  { path: "list", component: ListComponent },
   // { path: "add", component: AddComponentComponent, canActivate: [CanActivateAuthGuard] },
   // { path: "edit/:id", component: EditComponentComponent, canActivate: [CanActivateAuthGuard] },
   { path: "", redirectTo: "components", pathMatch: "full" },
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ComponentsListComponent,
+    ListComponent,
     // AddComponentComponent,
     // EditComponentComponent,
     // ShoppingCartComponent,

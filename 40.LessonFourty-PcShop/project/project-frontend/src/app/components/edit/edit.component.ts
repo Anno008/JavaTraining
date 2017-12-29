@@ -16,11 +16,11 @@ import { ComponentType } from "../../models/ComponentType";
 import { ComponentTypeService } from "../../services/componentType-service.service";
 
 @c({
-  selector: "app-edit-component",
-  templateUrl: "./editComponent.component.html",
-  styleUrls: ["./editComponent.component.css"]
+  selector: "app-edit",
+  templateUrl: "./edit.component.html",
+  styleUrls: ["./edit.component.css"]
 })
-export class EditComponentComponent {
+export class EditComponent {
   comp: Component;
   dataLoaded = false;
   brands: Brand[];

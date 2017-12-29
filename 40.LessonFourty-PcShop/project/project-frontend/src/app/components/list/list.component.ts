@@ -13,11 +13,11 @@ import { ShoppingCart } from "../../models/ShoppingCart";
 import { ShoppingCartService } from "../../services/shoppingCart-service.service";
 
 @c({
-  selector: "app-components",
-  templateUrl: "./componentsList.component.html",
-  styleUrls: ["./componentsList.component.css"]
+  selector: "app-list",
+  templateUrl: "./list.component.html",
+  styleUrls: ["./list.component.css"]
 })
-export class ComponentsListComponent {
+export class ListComponent {
   brands: Brand[];
   page: Page<Component>;
   currentPageNumber: number;
