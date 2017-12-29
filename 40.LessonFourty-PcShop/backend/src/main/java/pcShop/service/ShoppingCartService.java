@@ -1,6 +1,7 @@
 package pcShop.service;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,6 +40,9 @@ public class ShoppingCartService {
 
 	public ShoppingCart addItem(pcShop.model.Component comp) {
 		ShoppingCart sc = find();
+		if(sc.getItems().stream().filter(s -> s.getComponent().getId() == comp.getId()).collect(Collectors.toList()).size() > 0) {
+			return sc;
+		}
 		sc.getItems().add(new ShoppingCartItem(comp));
 		sc.setAmount(sc.getItems().stream().mapToDouble(x -> x.getComponent().getPrice()).sum());
 		return shoppingCatRepository.save(sc);
